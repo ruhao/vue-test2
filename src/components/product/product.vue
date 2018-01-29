@@ -209,7 +209,7 @@ export default {
     onSuccess(res, file) {
       if (this.formValidate.imgurl) {
       } else {
-        this.formValidate.imgurl = "http://www.api.com:3000/avatar-" + file.name;
+        this.formValidate.imgurl = "http://120.79.22.222:3000/avatar-" + file.name;
       }
     },
     del1() {
@@ -238,7 +238,7 @@ export default {
       }
     },
     getData1() {
-      this.$http.get("http://www.api.com:3000/kind/data").then(res => {
+      this.$http.get("http://120.79.22.222:3000/kind/data").then(res => {
         this.data1[0].children = [];
         this.data1[0].title = res.data[0].children[5].text;
         this.data1[0].id = res.data[0].children[5]._id;

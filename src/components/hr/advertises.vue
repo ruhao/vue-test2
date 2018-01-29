@@ -213,7 +213,7 @@ export default {
       this.formValidate.date = new Date();
       this.$http
         .put(
-          "http://www.api.com:3000/hr/data/" + this.formValidate._id,
+          "http://120.79.22.222:3000/hr/data/" + this.formValidate._id,
           this.formValidate
         )
         .then(res => {

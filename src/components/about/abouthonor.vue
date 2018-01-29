@@ -120,7 +120,7 @@
 					content:"",
 					imgurl:"",
 					type:"",
-					bgimg:"http://www.api.com:3000/culture5.jpg",
+					bgimg:"http://120.79.22.222:3000/culture5.jpg",
 				},
 				ids: []
 			}
@@ -129,7 +129,7 @@
 			onSuccess(res, file) {
 				if(this.formValidate.imgurl) {
 				} else {
-					this.formValidate.imgurl = "http://www.api.com:3000/avatar-" + file.name
+					this.formValidate.imgurl = "http://120.79.22.222:3000/avatar-" + file.name
 				}
 			},
 			del1() {

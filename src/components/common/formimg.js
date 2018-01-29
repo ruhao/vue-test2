@@ -1,14 +1,14 @@
 export default {
     data() {
         return {
-            imgUrl: 'http://www.api.com:3000/upload/upload',//上传模块的地址
+            imgUrl: 'http://120.79.22.222:3000/upload/upload',//上传模块的地址
         }
     },
     methods: {
         handleUpdate() {//修改操作
 
             this.formValidate.date = new Date()//更新时  吧时间也顺带更新了
-            this.$http.put(`http://www.api.com:3000/${this.apimodel}/data/` + this.formValidate._id, this.formValidate).then(res => {
+            this.$http.put(`http://120.79.22.222:3000/${this.apimodel}/data/` + this.formValidate._id, this.formValidate).then(res => {
                 this.getData()
                 this.modal6 = false;
             })
@@ -27,7 +27,7 @@ export default {
                 content: "<p>确定删除吗</p>",
                 onOk: () => {
                     this.$http
-                        .post(`http://www.api.com:3000/${this.apimodel}/deletes`, {
+                        .post(`http://120.79.22.222:3000/${this.apimodel}/deletes`, {
                             ids: this.ids.toString()
                         })
                         .then(res => {

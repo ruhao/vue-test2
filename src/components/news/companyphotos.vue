@@ -160,19 +160,19 @@ export default {
     onSuccess(res, file) {
       if (!this.formValidate.zimgurl1) {
         this.formValidate.zimgurl1 =
-          "http://www.api.com:3000/avatar-" + file.name;
+          "http://120.79.22.222:3000/avatar-" + file.name;
       } else if (!this.formValidate.zimgurl2) {
         this.formValidate.zimgurl2 =
-          "http://www.api.com:3000/avatar-" + file.name;
+          "http://120.79.22.222:3000/avatar-" + file.name;
       } else if (!this.formValidate.zimgurl3) {
         this.formValidate.zimgurl3 =
-          "http://www.api.com:3000/avatar-" + file.name;
+          "http://120.79.22.222:3000/avatar-" + file.name;
       } else if (!this.formValidate.zimgurl4) {
         this.formValidate.zimgurl4 =
-          "http://www.api.com:3000/avatar-" + file.name;
+          "http://120.79.22.222:3000/avatar-" + file.name;
       } else if (!this.formValidate.zimgurl5) {
         this.formValidate.zimgurl5 =
-          "http://www.api.com:3000/avatar-" + file.name;
+          "http://120.79.22.222:3000/avatar-" + file.name;
       }
     },
     del1() {

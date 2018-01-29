@@ -10,12 +10,12 @@
 export default {
   data() {
     return {
-      imgUrl: "http://www.api.com:3000/upload/upload"
+      imgUrl: "http://120.79.22.222:3000/upload/upload"
     };
   },
   methods: {
     onSuccess(res, file) {
-      console.log(file);
+      
     }
   }
 };

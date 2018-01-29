@@ -15,7 +15,7 @@ export default {
             this.modal6 = false;
         },
         getData() {
-            this.$http.post(`http://www.api.com:3000/${this.apimodel}/list`, this.fliter).then(res => {
+            this.$http.post(`http://120.79.22.222:3000/${this.apimodel}/list`, this.fliter).then(res => {
 
                 let ii = res.data.rows.length
                 for (let i = 0; i < ii; i++) {
@@ -39,7 +39,7 @@ export default {
                 loading: true,
                 onOk: () => {
                     setTimeout(() => {
-                        this.$http.delete(`http://www.api.com:3000/${this.apimodel}/data/` + this.fliter.data6[index]._id).then(res => {
+                        this.$http.delete(`http://120.79.22.222:3000/${this.apimodel}/data/` + this.fliter.data6[index]._id).then(res => {
                             //通过传入的id来删除需要删除的内容
                             this.fliter.data6.splice(index, 1);
                             this.getData()
@@ -59,7 +59,7 @@ export default {
             this.formValidate.cateId = this.cateId
             this.formValidate.date = new Date()
             //把cateID,type分类，时间更新等附加上去
-            this.$http.post(`http://www.api.com:3000/${this.apimodel}/data`, this.formValidate).then(res => {
+            this.$http.post(`http://120.79.22.222:3000/${this.apimodel}/data`, this.formValidate).then(res => {
                 this.getData()
                 this.modal6 = false;
                 this.formValidate.type = "";

@@ -155,10 +155,10 @@ export default {
     onSuccess(res, file) {
       if (this.formValidate.edimgurl) {
         this.formValidate.edimgurl1 =
-          "http://www.api.com:3000/avatar-" + file.name;
+          "http://120.79.22.222:3000/avatar-" + file.name;
       } else {
         this.formValidate.edimgurl =
-          "http://www.api.com:3000/avatar-" + file.name;
+          "http://120.79.22.222:3000/avatar-" + file.name;
       }
     },
     del1() {
