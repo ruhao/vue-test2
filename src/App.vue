@@ -340,7 +340,7 @@ export default {
     handleSubmit(name) {
       this.$refs[name].validate(valid => {
         if (valid) {
-          this.$http.get("http://localhost:3000/admin/data").then(res => {
+          this.$http.get("http://120.79.22.222:3000/admin/data").then(res => {
             let ii = res.data.length;
             for (let i = 0; i < ii; i++) {
               if (
