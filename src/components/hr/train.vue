@@ -64,7 +64,7 @@ export default {
     return {
       apimodel: "hr",
       type: "2",
-      cateId: "5a447f65039f0501acc5cd54",
+      cateId: "5a6af8201484f90a8854f179",
       columns7: [
         {
           type: "selection",

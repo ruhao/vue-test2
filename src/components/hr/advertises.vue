@@ -50,7 +50,7 @@
 					<Button type="primary" @click="handleUpdate('formValidate')">修改</Button>
 					</div>
 					<div v-else>
-					<Button type="primary" @click="handleSubmit('formValidate')">新增</Button>
+					<Button type="primary" @click="handleSubmit1('formValidate')">新增</Button>
 					</div>
 				</FormItem>
 			</Form>
@@ -65,7 +65,7 @@ export default {
     return {
       apimodel: "hr", //由于代码混入，通过restfulapi来改变一个变量达到访问不同的数据库的目的
       type: "3", //分类type，每个库都会有多个不同切换，每次切换通过改变不同的type来达到数据改变，从而来再次渲染视图层
-      cateId: "5a447f5b039f0501acc5cd53", //给上父元素的ID方便分类
+      cateId: "5a6af8171484f90a8854f178", //给上父元素的ID方便分类
       columns7: [
         {
           //后台管理页面表格建立
@@ -220,6 +220,24 @@ export default {
           //改变数据，通过this.formValidate._id找到相应的数据，然后把this.formValidate导入进行不一样的修改
           this.getData();
           this.modal6 = false;
+        });
+    },
+    handleSubmit1() {
+      this.formValidate.type = this.type;
+      this.formValidate.cateId = this.cateId;
+      this.formValidate.date = new Date();
+      console.log(this.formValidate);
+      //把cateID,type分类，时间更新等附加上去
+      this.$http
+        .post(
+          "http://120.79.22.222:3000/hr/data",
+          this.formValidate
+        )
+        .then(res => {
+          console.log(res);
+          this.getData();
+          this.modal6 = false;
+          this.formValidate.type = "";
         });
     }
   },

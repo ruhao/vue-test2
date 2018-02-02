@@ -15,7 +15,7 @@ export default {
   },
   methods: {
     onSuccess(res, file) {
-      
+      console.log(2)
     }
   }
 };

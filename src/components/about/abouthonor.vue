@@ -120,7 +120,7 @@
 					content:"",
 					imgurl:"",
 					type:"",
-					bgimg:"http://120.79.22.222:3000/culture5.jpg",
+					bgimg:"http://120.79.22.222:3000/avatar-culture5.jpg",
 				},
 				ids: []
 			}

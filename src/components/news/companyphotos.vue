@@ -73,7 +73,7 @@ export default {
     return {
       apimodel: "news",
       type: "4",
-      cateId: "5a4db8fd02847d17b42b0939",
+      cateId: "5a6af8631484f90a8854f17d",
       columns7: [
         {
           //建表格

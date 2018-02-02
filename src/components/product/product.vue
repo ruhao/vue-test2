@@ -69,7 +69,7 @@
 						</div>
 					</FormItem>
 					<FormItem>
-						<div v-if="formValidate.type">
+						<div v-if="formValidate.cateId">
 							<Button type="primary" @click="handleUpdate('formValidate')">修改</Button>
 						</div>
 						<div v-else>
@@ -90,6 +90,7 @@ export default {
   data() {
     return {
       cateId: "",
+      type: "",
       data1: [
         {
           title: "parent 1",
@@ -216,18 +217,20 @@ export default {
       this.formValidate.imgurl = "";
     },
     cidchance(rows) {
+      console.log(rows)
       this.fliter.cateId = [];
       if (rows[0].children.length > 0) {
         this.getcateid(rows[0].children);
       } else {
         this.fliter.cateId.push(rows[0].id);
+        console.log(rows[0].id)
         this.cateId = rows[0].id;
+        this.type=rows[0].type
       }
       this.fliter.type = rows[0].type;
       this.getData();
     },
     getcateid(rows) {
-      console.log(rows);
       let ii = rows.length;
       for (let i = 0; i < ii; i++) {
         if (rows[i].children.length > 0) {
@@ -260,6 +263,7 @@ export default {
           expand: true,
           id: data[i]._id,
           cateId: data[i].parentId,
+          type:data[i].type,
           children: []
         };
         Node.push(obj);
@@ -275,6 +279,7 @@ export default {
             this.$data.formValidate,
             this.$options.data().formValidate
           ); //进行数据新的结合，吧原来的空数据赋值到当前表格
+           this.formValidate.type=this.type
       } else {
         this.$Message.info("请先选择分类");
       }

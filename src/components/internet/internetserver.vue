@@ -54,7 +54,7 @@
 		data() {
 			return {
 				apimodel: 'internet',
-				cateId: "5a5336d46c074c03d47fb4c6",
+				cateId: "5a6af3c21484f90a8854f176",
 				columns7: [{
 						type: 'selection',
 						width: 60,

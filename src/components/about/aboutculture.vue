@@ -55,7 +55,7 @@ export default {
     return {
       type: "2",
       apimodel: "about", //resful api 接口路径不同处
-      cateId: "5a5336cd6c074c03d47fb4c5",
+      cateId: "5a72af38d03d2b14449ff16e",
       columns7: [
         {
           //ui框架的表格创建
@@ -129,7 +129,7 @@ export default {
         content: "",
         imgurl: "",
         type: "",
-        bgimg: "http://120.79.22.222:3000/culture5.jpg"
+        bgimg: "http://120.79.22.222:3000/avatar-culture5.jpg"
       },
       ids: []
     };

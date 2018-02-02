@@ -16,7 +16,6 @@ export default {
         },
         getData() {
             this.$http.post(`http://120.79.22.222:3000/${this.apimodel}/list`, this.fliter).then(res => {
-
                 let ii = res.data.rows.length
                 for (let i = 0; i < ii; i++) {
                     res.data.rows[i].date = moment(res.data.rows[i].date).format("YYYY年MM月DD日HH时mm分ss秒")//用moment来改变时间
@@ -54,12 +53,13 @@ export default {
                 Object.assign(this.$data.formValidate, this.$options.data().formValidate)//进行数据新的结合，吧原来的空数据赋值到当前表格
         },
         handleSubmit() {
-            console.log(this.formValidate)
             this.formValidate.type = this.type
             this.formValidate.cateId = this.cateId
             this.formValidate.date = new Date()
+            console.log(1)
             //把cateID,type分类，时间更新等附加上去
             this.$http.post(`http://120.79.22.222:3000/${this.apimodel}/data`, this.formValidate).then(res => {
+                console.log(res)
                 this.getData()
                 this.modal6 = false;
                 this.formValidate.type = "";
