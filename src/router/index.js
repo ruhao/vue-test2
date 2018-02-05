@@ -21,6 +21,8 @@ import Upload from '../components/upload/upload'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
+  base: __dirname,
   routes: [
     {
       path: '/product',
