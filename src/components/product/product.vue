@@ -89,7 +89,7 @@ export default {
   mixins: [Common, Formimg],
   data() {
     return {
-      cateId: "",
+      cateId: '',
       type: "",
       data1: [
         {
@@ -217,13 +217,12 @@ export default {
       this.formValidate.imgurl = "";
     },
     cidchance(rows) {
-      console.log(rows)
       this.fliter.cateId = [];
       if (rows[0].children.length > 0) {
+        this.cateId = '';
         this.getcateid(rows[0].children);
       } else {
         this.fliter.cateId.push(rows[0].id);
-        console.log(rows[0].id)
         this.cateId = rows[0].id;
         this.type=rows[0].type
       }

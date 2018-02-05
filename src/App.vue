@@ -82,13 +82,15 @@
   height: 100%;
   width: 100%;
   text-align: center;
-  padding-top: 250px;
+  padding-top: 450px;
   background: rgba(0, 0, 0, 0.2);
 }
 
 .allweb {
   height: 100%;
   width: 100%;
+	background: url('http://120.79.22.222:3000/avatar-bici.png') center -250px no-repeat;
+	background-color:black;  
 }
 
 .allbody {
@@ -340,6 +342,7 @@ export default {
     handleSubmit(name) {
       this.$refs[name].validate(valid => {
         if (valid) {
+					console.log(valid)
           this.$http.get("http://120.79.22.222:3000/admin/data").then(res => {
             let ii = res.data.length;
             for (let i = 0; i < ii; i++) {
