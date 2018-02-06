@@ -56,6 +56,7 @@ export default {
             this.formValidate.type = this.type
             this.formValidate.cateId = this.cateId
             this.formValidate.date = new Date()
+            console.log(1)
             //把cateID,type分类，时间更新等附加上去
             this.$http.post(`http://120.79.22.222:3000/${this.apimodel}/data`, this.formValidate).then(res => {
                 console.log(res)
@@ -63,6 +64,7 @@ export default {
                 this.modal6 = false;
                 this.formValidate.type = "";
             })
+
         }
     }
 }

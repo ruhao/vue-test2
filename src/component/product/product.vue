@@ -302,8 +302,8 @@ export default {
   width: 250px;
   border-right: 1px #cccccc solid;
   overflow: scroll;
-  margin-right: 20px;
 }
+
 .product-right {
   flex: 1;
   display: flex;

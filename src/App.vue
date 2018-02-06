@@ -131,6 +131,10 @@
 									<Icon type="ios-navigate"></Icon>
 									<router-link to='/product' tag='span'>产品模块</router-link>
 								</Menu-item>
+								<Menu-item name="9">
+									<Icon type="lock-combination"></Icon>
+									<router-link to='/brand' tag='span'>合作品牌</router-link>
+								</Menu-item>
 								<Submenu name="3">
 									<template slot="title">
 										<Icon type="ios-reverse-camera"></Icon>
