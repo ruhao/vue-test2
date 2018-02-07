@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
     state: {
-        login: "all",
+        login: "",
     },
     getters: {
         login: state => {
