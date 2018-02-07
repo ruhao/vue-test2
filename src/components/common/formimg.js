@@ -6,7 +6,6 @@ export default {
     },
     methods: {
         handleUpdate() {//修改操作
-
             this.formValidate.date = new Date()//更新时  吧时间也顺带更新了
             this.$http.put(`http://120.79.22.222:3000/${this.apimodel}/data/` + this.formValidate._id, this.formValidate).then(res => {
                 this.getData()

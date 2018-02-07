@@ -9,6 +9,7 @@ export default {
     methods: {
         show(index) {
             this.modal6 = true
+            Object.assign(this.$data.formValidate, this.$options.data().formValidate)
             Object.assign(this.$data.formValidate, this.fliter.data6[index])//进行数据的结合，赋值
         },
         asyncOK() {

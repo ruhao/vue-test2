@@ -42,6 +42,9 @@
 					<FormItem label="条形码">
 						<Input v-model="formValidate.barcode" placeholder="Enter your barcode"></Input>
 					</FormItem>
+          <FormItem label="品牌名">
+						<Input v-model="formValidate.belong" placeholder="Enter your barcode"></Input>
+					</FormItem>
 					<FormItem label="特点一">
 						<Input v-model="formValidate.title" placeholder="Enter your title"></Input>
 						<Input v-model="formValidate.content" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter your content"></Input>
@@ -202,7 +205,8 @@ export default {
         imgurl: "",
         barcode: "",
         type: "",
-        cateId: ""
+        cateId: "",
+        belong:""
       }
     };
   },
