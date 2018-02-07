@@ -47,14 +47,17 @@
 					</FormItem>
 					<FormItem label="特点一">
 						<Input v-model="formValidate.title" placeholder="Enter your title"></Input>
+            <br/>
 						<Input v-model="formValidate.content" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter your content"></Input>
 					</FormItem>
 					<FormItem label="特点二">
 						<Input v-model="formValidate.title1" placeholder="Enter your title1"></Input>
+            <br/>
 						<Input v-model="formValidate.content1" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter your content1"></Input>
 					</FormItem>
 					<FormItem label="特点三">
 						<Input v-model="formValidate.title2" placeholder="Enter your title2"></Input>
+            <br/>
 						<Input v-model="formValidate.content2" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter your content2"></Input>
 					</FormItem>
 					<Upload multiple type="drag" name='avatar' :action="imgUrl" :on-success="onSuccess">

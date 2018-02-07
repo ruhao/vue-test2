@@ -224,6 +224,7 @@ export default {
   flex: 1;
   display: flex;
   flex-direction: column;
+  margin-left: 20px;
 }
 
 .content {
