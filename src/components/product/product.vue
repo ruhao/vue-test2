@@ -33,6 +33,24 @@
 					<FormItem label="产品质量">
 						<Input v-model="formValidate.weight" placeholder="Enter your weight"></Input>
 					</FormItem>
+					<FormItem label="酒精含量">
+						<Input v-model="formValidate.Qcontent" placeholder="Enter your Qcontent"></Input>
+					</FormItem>
+					<FormItem label="糖含量">
+						<Input v-model="formValidate.Tcontent" placeholder="Enter your Tcontent"></Input>
+					</FormItem>
+					<FormItem label="酸含量">
+						<Input v-model="formValidate.Scontent" placeholder="Enter your Scontent"></Input>
+					</FormItem>
+					<FormItem label="颜色">
+						<Input v-model="formValidate.weight" placeholder="Enter your color"></Input>
+					</FormItem>
+					<FormItem label="气味">
+						<Input v-model="formValidate.smell" placeholder="Enter your smell"></Input>
+					</FormItem>
+					<FormItem label="口感">
+						<Input v-model="formValidate.taste" placeholder="Enter your taste"></Input>
+					</FormItem>
 					<FormItem label="保质期">
 						<Input v-model="formValidate.expiration" placeholder="Enter your expiration"></Input>
 					</FormItem>
@@ -75,7 +93,7 @@
 						</div>
 					</FormItem>
 					<FormItem>
-						<div v-if="formValidate.cateId">
+						<div v-if="formValidate.name">
 							<Button type="primary" @click="handleUpdate('formValidate')">修改</Button>
 						</div>
 						<div v-else>
@@ -209,7 +227,13 @@ export default {
         barcode: "",
         type: "",
         cateId: "",
-        belong:""
+        belong:"",
+        Qcontent:"",
+		Tcontent:"",
+		Scontent:"",
+		color:"",
+		smell:"",
+		taste:"",
       }
     };
   },

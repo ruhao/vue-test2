@@ -26,6 +26,12 @@ var ProductsSchema = new Schema({
 	cateId: ObjectId,
 	type:String,
 	belong:String,
+	Qcontent:String,
+	Tcontent:String,
+	Scontent:String,
+	color:String,
+	smell:String,
+	taste:String,
 	date: { type: Date, default: Date.now }
 })
 
