@@ -132,7 +132,7 @@ export default {
       fliter: {
         data6: [],
         total: 0,
-        limit: 12,
+        limit: 8,
         page: 1,
         name: "",
         type: "",

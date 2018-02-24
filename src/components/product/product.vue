@@ -57,6 +57,12 @@
 					<FormItem label="储存环境">
 						<Input v-model="formValidate.storaged" placeholder="Enter your storaged"></Input>
 					</FormItem>
+					<FormItem label="相关搭配">
+						<Input v-model="formValidate.match" placeholder="Enter your match"></Input>
+					</FormItem>
+					<FormItem label="产品介绍">
+						<Input v-model="formValidate.introduction" placeholder="Enter your introduction"></Input>
+					</FormItem>
 					<FormItem label="条形码">
 						<Input v-model="formValidate.barcode" placeholder="Enter your barcode"></Input>
 					</FormItem>
@@ -140,10 +146,6 @@ export default {
           key: "origin"
         },
         {
-          title: "产品描述",
-          key: "describe"
-        },
-        {
           title: "产品质量",
           key: "weight"
         },
@@ -202,7 +204,7 @@ export default {
       fliter: {
         data6: [],
         total: 0,
-        limit: 12,
+        limit: 8,
         page: 1,
         name: "",
         type: "",

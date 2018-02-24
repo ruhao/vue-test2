@@ -35,7 +35,7 @@
 					</div>
 				</FormItem>
 				<FormItem>
-					<div v-if="formValidate.type">
+					<div v-if="formValidate.title">
 						<Button type="primary" @click="handleUpdate('formValidate')">修改</Button>
 					</div>
 					<div v-else>
