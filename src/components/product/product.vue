@@ -204,7 +204,7 @@ export default {
       fliter: {
         data6: [],
         total: 0,
-        limit: 8,
+        limit: 12,
         page: 1,
         name: "",
         type: "",
@@ -341,6 +341,7 @@ export default {
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
 }
 
 .content {
@@ -357,6 +358,7 @@ export default {
 .content-foot {
   height: 50px;
   text-align: center;
+  margin-top: 20px;
 }
 
 .message-date {

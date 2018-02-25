@@ -242,6 +242,16 @@
 									<router-link to='/message' tag='span'>留言模块</router-link>
 								</Menu-item>
 							</div>
+							<div v-if="login=='product'">
+								<Menu-item name="2">
+									<Icon type="ios-navigate"></Icon>
+									<router-link to='/product' tag='span'>产品模块</router-link>
+								</Menu-item>
+								<Menu-item name="4">
+									<Icon type="edit"></Icon>
+									<router-link to='/upload' tag='span'>上传模块</router-link>
+								</Menu-item>
+							</div>
 						</Menu>
 					</i-col>
 					<i-col :span="spanRight">
@@ -369,6 +379,11 @@ export default {
                 if (this.login == "all") {
                   this.$router.push({
                     path: "/"
+                  });
+                }
+								if (this.login == "hr") {
+                  this.$router.push({
+                    path: "/product"
                   });
                 }
               }

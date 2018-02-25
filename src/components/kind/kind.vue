@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="product-left">
 		<Tree :data="data5" :render="renderContent"></Tree>
 		<Modal v-model="modal1" title="Common Modal dialog box title" @on-ok="ok" @on-cancel="cancel">
 			<Form :model="formItem" :label-width="80">
@@ -247,3 +247,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.product-left {
+  overflow-Y: scroll;
+  height: 100%;
+}
+</style>
