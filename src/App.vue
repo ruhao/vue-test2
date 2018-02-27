@@ -216,6 +216,10 @@
 									<router-link to='/news/marketing' tag='span'>营销活动</router-link>
 									</MenuItem>
 								</Submenu>
+								<Menu-item name="6">
+									<Icon type="ios-world-outline"></Icon>
+									<router-link to='/internet' tag='span'>网络营销</router-link>
+								</Menu-item>
 							</div>
 							<div v-if="login=='hr'">
 								<Submenu name="7">
@@ -376,12 +380,17 @@ export default {
                     path: "/message"
                   });
                 }
+                if (this.login == "market") {
+                  this.$router.push({
+                    path: "/internet"
+                  });
+                }
                 if (this.login == "all") {
                   this.$router.push({
                     path: "/"
                   });
                 }
-								if (this.login == "hr") {
+								if (this.login == "product") {
                   this.$router.push({
                     path: "/product"
                   });
