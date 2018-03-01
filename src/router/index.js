@@ -33,8 +33,9 @@ import Marketing from '../components/news/marketing'
 import CompanyPhotos from '../components/news/companyphotos'
 import Product from '../components/product/product'
 import Brand from '../components/product/brand'
+import Intmarket from '../components/internet/market'
 import Upload from '../components/upload/upload'
-
+import UploadJson from '../components/upload/uploadJson'
 
 Vue.use(Router)
 
@@ -58,6 +59,12 @@ export default new Router({
       path: '/upload',
       components: {
         default: Upload,
+      }
+    },
+    {
+      path: '/jsonupload',
+      components: {
+        default: UploadJson,
       }
     },
     {
@@ -103,6 +110,12 @@ export default new Router({
       path: '/internet',
       components: {
         default: InternetSever,
+      }
+    },
+    {
+      path: '/intmarket',
+      components: {
+        default: Intmarket,
       }
     },
     {

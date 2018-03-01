@@ -135,6 +135,10 @@
 									<Icon type="lock-combination"></Icon>
 									<router-link to='/brand' tag='span'>合作品牌</router-link>
 								</Menu-item>
+								<Menu-item name="10">
+									<Icon type="lock-combination"></Icon>
+									<router-link to='/intmarket' tag='span'>营销网络</router-link>
+								</Menu-item>
 								<Submenu name="3">
 									<template slot="title">
 										<Icon type="ios-reverse-camera"></Icon>
@@ -157,10 +161,20 @@
 									<router-link to='/news/marketing' tag='span'>营销活动</router-link>
 									</MenuItem>
 								</Submenu>
-								<Menu-item name="4">
+									<Submenu name="4">
+									<template slot="title">
+										<Icon type="ios-reverse-camera"></Icon>
+										上传模块
+									</template>
+									<Menu-item name="4-1">
 									<Icon type="edit"></Icon>
-									<router-link to='/upload' tag='span'>上传模块</router-link>
-								</Menu-item>
+									<router-link to='/upload' tag='span'>上传图片</router-link>
+									</Menu-item>
+									<Menu-item name="4-2">
+									<Icon type="edit"></Icon>
+									<router-link to='/jsonupload' tag='span'>上传Json</router-link>
+									</Menu-item>
+								</Submenu>
 								<Menu-item name="5">
 									<Icon type="ios-copy-outline"></Icon>
 									<router-link to='/kind' tag='span'>分类模块</router-link>
