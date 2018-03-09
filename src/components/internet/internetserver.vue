@@ -12,7 +12,7 @@
 		<div class="content-foot">
 			<Page :total="fliter.total" show-elevator @on-change="changePage"></Page>
 		</div>
-		<Modal v-model="modal6" title="留言详情" :loading="loading" @on-ok="asyncOK">
+		<Modal v-model="modal6" title="公司服务" :loading="loading" @on-ok="asyncOK">
 			<Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
 				<FormItem label="主题">
 					<Input v-model="formValidate.title" placeholder="Enter your title"></Input>
@@ -54,7 +54,7 @@
 		data() {
 			return {
 				apimodel: 'internet',
-				cateId: "5a6af3c21484f90a8854f176",
+				cateId: "5a9bf30cfce9270fa4c2b6e6",
 				columns7: [{
 						type: 'selection',
 						width: 60,
@@ -125,7 +125,7 @@
 			onSuccess(res, file) {
 				if(this.formValidate.imgurl) {
 				} else {
-					this.formValidate.imgurl = "http://120.79.22.222:3000/avatar-" + file.name
+					this.formValidate.imgurl = "http://47.98.51.142:3000/avatar-" + file.name
 				}
 			},
 			del1() {

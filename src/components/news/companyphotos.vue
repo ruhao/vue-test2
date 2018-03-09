@@ -73,7 +73,7 @@ export default {
     return {
       apimodel: "news",
       type: "4",
-      cateId: "5a6af8631484f90a8854f17d",
+      cateId: "5a9bf4dbfce9270fa4c2b6f8",
       columns7: [
         {
           //建表格
@@ -160,19 +160,19 @@ export default {
     onSuccess(res, file) {
       if (!this.formValidate.zimgurl1) {
         this.formValidate.zimgurl1 =
-          "http://120.79.22.222:3000/avatar-" + file.name;
+          "http://47.98.51.142:3000/avatar-" + file.name;
       } else if (!this.formValidate.zimgurl2) {
         this.formValidate.zimgurl2 =
-          "http://120.79.22.222:3000/avatar-" + file.name;
+          "http://47.98.51.142:3000/avatar-" + file.name;
       } else if (!this.formValidate.zimgurl3) {
         this.formValidate.zimgurl3 =
-          "http://120.79.22.222:3000/avatar-" + file.name;
+          "http://47.98.51.142:3000/avatar-" + file.name;
       } else if (!this.formValidate.zimgurl4) {
         this.formValidate.zimgurl4 =
-          "http://120.79.22.222:3000/avatar-" + file.name;
+          "http://47.98.51.142:3000/avatar-" + file.name;
       } else if (!this.formValidate.zimgurl5) {
         this.formValidate.zimgurl5 =
-          "http://120.79.22.222:3000/avatar-" + file.name;
+          "http://47.98.51.142:3000/avatar-" + file.name;
       }
     },
     del1() {

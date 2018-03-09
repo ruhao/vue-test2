@@ -47,7 +47,7 @@ export default {
     return {
       apimodel: "news",
       type: "3",
-      cateId: "5a6af86e1484f90a8854f17e",
+      cateId: "5a9bf4dbfce9270fa4c2b6f9",
       columns7: [
         {
           type: "selection",

@@ -34,10 +34,7 @@
 						<Input v-model="formValidate.name" placeholder="Enter your name"></Input>
 					</FormItem>
           <FormItem label="详情">
-						<Input v-model="formValidate.detail" placeholder="Enter your detail"></Input>
-					</FormItem>
-          <FormItem label="优先显示">
-						<Input v-model="formValidate.isfisrt" placeholder="Enter your isfisrt"></Input>
+						<Input v-model="formValidate.detail" placeholder="Enter your name"></Input>
 					</FormItem>
 					<Upload multiple type="drag" name='avatar' :action="imgUrl" :on-success="onSuccess">
 						<div style="padding: 20px 0">
@@ -146,8 +143,7 @@ export default {
         name: "",
         type:"",
         imgurl:"",
-        detail:"",
-        isfisrt:""
+        detail:""
       }
     };
   },

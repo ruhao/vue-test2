@@ -173,7 +173,7 @@ export default {
         onOk: () => {
           setTimeout(() => {
             this.$http
-              .delete("http://120.79.22.222:3000/kind/data/" + data.id)
+              .delete("http://47.98.51.142:3000/kind/data/" + data.id)
               .then(res => {
                 this.getData();
                 this.$Message.info("Clicked ok");
@@ -190,7 +190,7 @@ export default {
     ok() {
       if (this.sure) {
         this.$http
-          .post("http://120.79.22.222:3000/kind/data", this.formItem)
+          .post("http://47.98.51.142:3000/kind/data", this.formItem)
           .then(res => {
             this.getData();
             this.$Message.info("Clicked ok");
@@ -199,7 +199,7 @@ export default {
         console.log(this.formItem);
         this.$http
           .put(
-            "http://120.79.22.222:3000/kind/data/" + this.formItem.id,
+            "http://47.98.51.142:3000/kind/data/" + this.formItem.id,
             this.formItem
           )
           .then(res => {
@@ -214,7 +214,7 @@ export default {
       this.$Message.info("Clicked cancel");
     },
     getData() {
-      this.$http.get("http://120.79.22.222:3000/kind/data").then(res => {
+      this.$http.get("http://47.98.51.142:3000/kind/data").then(res => {
         this.data5[0].children = [];
         this.kinddata = res.data[0];
         this.data5[0].text = this.kinddata.text;

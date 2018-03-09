@@ -61,7 +61,7 @@ export default {
     return {
       apimodel: "news",
       type: "1",
-      cateId: "5a6af84b1484f90a8854f17b",
+      cateId: "5a9bf4dbfce9270fa4c2b6f6",
       columns7: [
         {
           //建表格
@@ -151,7 +151,7 @@ export default {
     onSuccess(res, file) {
       if (this.formValidate.imgurl) {
       } else {
-        this.formValidate.imgurl = "http://120.79.22.222:3000/avatar-" + file.name;
+        this.formValidate.imgurl = "http://47.98.51.142:3000/avatar-" + file.name;
       }
     },
     del1() {

@@ -1,6 +1,6 @@
 <template>
 	<div class="content">
-		<Input v-model="fliter.title">
+		<Input v-model="fliter.htitle">
 		<Button slot="append" icon="ios-search" @click="search"></Button>
 		<Button type="success" slot="append" style="width: 80px;margin-left: 10px;background: lightgreen;color: white;" @click="onAdd">添加信息</Button>
 		<Button type="error" slot="append" style="width: 80px;margin-left: 10px;background: lightcoral;color: white;" @click='onDeletes'>删除选中</Button>
@@ -47,7 +47,7 @@ export default {
     return {
       apimodel: "news",
       type: "2",
-      cateId: "5a6af8521484f90a8854f17c",
+      cateId: "5a9bf4dbfce9270fa4c2b6f7",
       columns7: [
         {
           type: "selection",
@@ -112,11 +112,10 @@ export default {
       ],
       fliter: {
         data6: [],
-        total: 0,
         limit: 12,
         page: 1,
         type: "2",
-        title: ""
+        htitle: ""
       },
       ruleValidate: {},
       formValidate: {

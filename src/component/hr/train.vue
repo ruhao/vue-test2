@@ -64,7 +64,7 @@ export default {
     return {
       apimodel: "hr",
       type: "2",
-      cateId: "5a6af8201484f90a8854f179",
+      cateId: "5a9bf485fce9270fa4c2b6f0",
       columns7: [
         {
           type: "selection",
@@ -155,10 +155,10 @@ export default {
     onSuccess(res, file) {
       if (this.formValidate.edimgurl) {
         this.formValidate.edimgurl1 =
-          "http://120.79.22.222:3000/avatar-" + file.name;
+          "http://47.98.51.142:3000/avatar-" + file.name;
       } else {
         this.formValidate.edimgurl =
-          "http://120.79.22.222:3000/avatar-" + file.name;
+          "http://47.98.51.142:3000/avatar-" + file.name;
       }
     },
     del1() {

@@ -89,7 +89,7 @@
 .allweb {
   height: 100%;
   width: 100%;
-	background: url('http://120.79.22.222:3000/avatar-bici.png') center -250px no-repeat;
+	background: url('http://47.98.51.142:3000/avatar-bici.png') center -250px no-repeat;
 	background-color:black;  
 }
 
@@ -374,8 +374,7 @@ export default {
     handleSubmit(name) {
       this.$refs[name].validate(valid => {
         if (valid) {
-					console.log(valid)
-          this.$http.get("http://120.79.22.222:3000/admin/data").then(res => {
+          this.$http.get("http://47.98.51.142:3000/admin/data").then(res => {
             let ii = res.data.length;
             for (let i = 0; i < ii; i++) {
               if (

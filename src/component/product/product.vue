@@ -33,25 +33,67 @@
 					<FormItem label="产品质量">
 						<Input v-model="formValidate.weight" placeholder="Enter your weight"></Input>
 					</FormItem>
+					<FormItem label="酒精含量">
+						<Input v-model="formValidate.Qcontent" placeholder="Enter your Qcontent"></Input>
+					</FormItem>
+					<FormItem label="糖含量">
+						<Input v-model="formValidate.Tcontent" placeholder="Enter your Tcontent"></Input>
+					</FormItem>
+					<FormItem label="酸含量">
+						<Input v-model="formValidate.Scontent" placeholder="Enter your Scontent"></Input>
+					</FormItem>
+          <FormItem label="苦度">
+						<Input v-model="formValidate.Kcontent" placeholder="Enter your Kcontent"></Input>
+					</FormItem>
+					<FormItem label="颜色">
+						<Input v-model="formValidate.color" placeholder="Enter your color"></Input>
+					</FormItem>
+					<FormItem label="气味">
+						<Input v-model="formValidate.smell" placeholder="Enter your smell"></Input>
+					</FormItem>
+					<FormItem label="口感">
+						<Input v-model="formValidate.taste" placeholder="Enter your taste"></Input>
+					</FormItem>
 					<FormItem label="保质期">
 						<Input v-model="formValidate.expiration" placeholder="Enter your expiration"></Input>
+					</FormItem>
+          <FormItem label="适用人群">
+						<Input v-model="formValidate.isfit" placeholder="Enter your isfit"></Input>
+					</FormItem>
+          <FormItem label="食用用方法">
+						<Input v-model="formValidate.use" placeholder="Enter your use"></Input>
 					</FormItem>
 					<FormItem label="储存环境">
 						<Input v-model="formValidate.storaged" placeholder="Enter your storaged"></Input>
 					</FormItem>
+					<FormItem label="相关搭配">
+						<Input v-model="formValidate.match" placeholder="Enter your match"></Input>
+					</FormItem>
+					<FormItem label="产品介绍">
+						<Input v-model="formValidate.introduction" placeholder="Enter your introduction"></Input>
+					</FormItem>
+          <FormItem label="公司介绍">
+						<Input v-model="formValidate.companyintroduction" placeholder="Enter your companyintroduction"></Input>
+					</FormItem>
 					<FormItem label="条形码">
 						<Input v-model="formValidate.barcode" placeholder="Enter your barcode"></Input>
 					</FormItem>
+          <FormItem label="品牌名">
+						<Input v-model="formValidate.belong" placeholder="Enter your barcode"></Input>
+					</FormItem>
 					<FormItem label="特点一">
 						<Input v-model="formValidate.title" placeholder="Enter your title"></Input>
+            <br/>
 						<Input v-model="formValidate.content" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter your content"></Input>
 					</FormItem>
 					<FormItem label="特点二">
 						<Input v-model="formValidate.title1" placeholder="Enter your title1"></Input>
+            <br/>
 						<Input v-model="formValidate.content1" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter your content1"></Input>
 					</FormItem>
 					<FormItem label="特点三">
 						<Input v-model="formValidate.title2" placeholder="Enter your title2"></Input>
+            <br/>
 						<Input v-model="formValidate.content2" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter your content2"></Input>
 					</FormItem>
 					<Upload multiple type="drag" name='avatar' :action="imgUrl" :on-success="onSuccess">
@@ -69,7 +111,7 @@
 						</div>
 					</FormItem>
 					<FormItem>
-						<div v-if="formValidate.cateId">
+						<div v-if="formValidate.name">
 							<Button type="primary" @click="handleUpdate('formValidate')">修改</Button>
 						</div>
 						<div v-else>
@@ -114,10 +156,6 @@ export default {
         {
           title: "产品产地",
           key: "origin"
-        },
-        {
-          title: "产品描述",
-          key: "describe"
         },
         {
           title: "产品质量",
@@ -202,7 +240,18 @@ export default {
         imgurl: "",
         barcode: "",
         type: "",
-        cateId: ""
+        cateId: "",
+        belong:"",
+        Qcontent:"",
+        use: "",
+        isfit: "",
+        companyintroduction: "",
+    Tcontent:"",
+    Kcontent:"",
+		Scontent:"",
+		color:"",
+		smell:"",
+		taste:"",
       }
     };
   },
@@ -210,7 +259,7 @@ export default {
     onSuccess(res, file) {
       if (this.formValidate.imgurl) {
       } else {
-        this.formValidate.imgurl = "http://120.79.22.222:3000/avatar-" + file.name;
+        this.formValidate.imgurl = "http://47.98.51.142:3000/avatar-" + file.name;
       }
     },
     del1() {
@@ -240,7 +289,7 @@ export default {
       }
     },
     getData1() {
-      this.$http.get("http://120.79.22.222:3000/kind/data").then(res => {
+      this.$http.get("http://47.98.51.142:3000/kind/data").then(res => {
         this.data1[0].children = [];
         this.data1[0].title = res.data[0].children[5].text;
         this.data1[0].id = res.data[0].children[5]._id;
@@ -302,12 +351,13 @@ export default {
   width: 250px;
   border-right: 1px #cccccc solid;
   overflow: scroll;
+  margin-right: 20px;
 }
-
 .product-right {
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
 }
 
 .content {
@@ -324,6 +374,7 @@ export default {
 .content-foot {
   height: 50px;
   text-align: center;
+  margin-top: 20px;
 }
 
 .message-date {

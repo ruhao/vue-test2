@@ -55,7 +55,7 @@
 			return {
 				type: "1",
 				apimodel: 'about',//resful api 接口路径不同处
-				cateId: "5a5336cd6c074c03d47fb4c5",
+				cateId: "5a9bf50dfce9270fa4c2b6fb",
 				columns7: [{
 						type: 'selection',
 						width: 60,
@@ -120,7 +120,7 @@
 					content:"",
 					imgurl:"",
 					type:"",
-					bgimg:"http://120.79.22.222:3000/avatar-culture5.jpg",
+					bgimg:"http://47.98.51.142:3000/avatar-culture5.jpg",
 				},
 				ids: []
 			}
@@ -129,7 +129,7 @@
 			onSuccess(res, file) {
 				if(this.formValidate.imgurl) {
 				} else {
-					this.formValidate.imgurl = "http://120.79.22.222:3000/avatar-" + file.name
+					this.formValidate.imgurl = "http://47.98.51.142:3000/avatar-" + file.name
 				}
 			},
 			del1() {
