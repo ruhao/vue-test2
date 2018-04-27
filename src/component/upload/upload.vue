@@ -10,7 +10,7 @@
 export default {
   data() {
     return {
-      imgUrl: "http://47.98.51.142:3000/upload/upload"
+      imgUrl: this.getTest() + "/upload/upload"
     };
   },
   methods: {

@@ -2,8 +2,8 @@
 	<div class="content">
 		<Input v-model="fliter.title">
 		<Button slot="append" icon="ios-search" @click="search"></Button>
-		<Button type="success" slot="append" style="width: 80px;margin-left: 10px;background: lightgreen;color: white;" @click="onAdd">添加信息</Button>
-		<Button type="error" slot="append" style="width: 80px;margin-left: 10px;background: lightcoral;color: white;" @click='onDeletes'>删除选中</Button>
+		<Button type="success" slot="append" style="width: 120px;margin-left: 2px;background: lightgreen;color: white;" @click="onAdd">Add information</Button>
+		<Button type="error" slot="append" style="width: 140px;margin-left: 2px;background: lightcoral;color: white;" @click='onDeletes'>Delete the selected</Button>
 		</Input>
 
 		<div class="content-body">
@@ -12,24 +12,24 @@
 		<div class="content-foot">
 			<Page :total="fliter.total" show-elevator @on-change="changePage"></Page>
 		</div>
-		<Modal v-model="modal6" title="留言详情" :loading="loading" @on-ok="asyncOK">
+		<Modal v-model="modal6" title="Company news" :loading="loading" @on-ok="asyncOK">
 			<Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
-				<FormItem label="标题">
+				<FormItem label="The title">
 					<Input v-model="formValidate.title" placeholder="Enter your title"></Input>
 				</FormItem>
-				<FormItem label="年月">
+				<FormItem label="Years and Month">
 					<Input v-model="formValidate.year" placeholder="like 17-09"></Input>
 				</FormItem>
-				<FormItem label="具体几号">
+				<FormItem label="Day">
 					<Input v-model="formValidate.day" placeholder="like 07"></Input>
 				</FormItem>
-				<FormItem label="具体内容">
+				<FormItem label="Content">
 					<Input v-model="formValidate.content" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter your education"></Input>
 				</FormItem>
 				<Upload multiple type="drag" name='avatar' :action="imgUrl" :on-success="onSuccess">
 					<div style="padding: 20px 0">
 						<Icon type="ios-cloud-upload" size="52" style="color: #3399ff"></Icon>
-						<p>点击或将文件拖拽到这里上传</p>
+						<p>Click or drag the file here to upload.</p>
 					</div>
 				</Upload>
 				<FormItem>
@@ -38,14 +38,18 @@
 							<span class="control1" @click="del1">X</span>
 							<img :src="formValidate.imgurl">
 						</div>
+            <div v-if="formValidate.imgurlContent" class="madelbox1">
+							<span class="control1" @click="del1">X</span>
+							<img :src="formValidate.imgurlContent">
+						</div>
 					</div>
 				</FormItem>
 				<FormItem>
 					<div v-if="formValidate.type">
-						<Button type="primary" @click="handleUpdate('formValidate')">修改</Button>
+						<Button type="primary" @click="handleUpdate('formValidate')">Modify</Button>
 					</div>
 					<div v-else>
-						<Button type="primary" @click="handleSubmit('formValidate')">新增</Button>
+						<Button type="primary" @click="handleSubmit('formValidate')">Increased</Button>
 					</div>
 				</FormItem>
 			</Form>
@@ -59,9 +63,9 @@ export default {
   mixins: [Common, Formimg],
   data() {
     return {
-      apimodel: "news",
+      apimodel: "ennews",
       type: "1",
-      cateId: "5a9bf4dbfce9270fa4c2b6f6",
+      cateId: "5aa9e236ce77ad15f0c580eb",
       columns7: [
         {
           //建表格
@@ -70,19 +74,19 @@ export default {
           align: "center"
         },
         {
-          title: "主题",
+          title: "The title",
           key: "title"
         },
         {
-          title: "年月",
+          title: "Years and Month",
           key: "year"
         },
         {
-          title: "具体日期",
+          title: "Day",
           key: "day"
         },
         {
-          title: "操作",
+          title: "Operation",
           key: "action",
           width: 150,
           align: "center",
@@ -104,7 +108,7 @@ export default {
                     }
                   }
                 },
-                "查看"
+                "Examine"
               ),
               h(
                 "Button",
@@ -119,7 +123,7 @@ export default {
                     }
                   }
                 },
-                "删除"
+                "Delete"
               )
             ]);
           }
@@ -141,7 +145,8 @@ export default {
         year: "",
         imgurl: "",
         day: "",
-        type: ""
+        type: "",
+        imgurlContent: "",
       },
       ids: []
     };
@@ -150,8 +155,9 @@ export default {
     //图片上传成功时粗发事件
     onSuccess(res, file) {
       if (this.formValidate.imgurl) {
+         this.formValidate.imgurlContent = this.getTest() + "/avatar-" + file.name;
       } else {
-        this.formValidate.imgurl = "http://47.98.51.142:3000/avatar-" + file.name;
+        this.formValidate.imgurl = this.getTest() + "/avatar-" + file.name;
       }
     },
     del1() {

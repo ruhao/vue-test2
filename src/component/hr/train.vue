@@ -2,8 +2,8 @@
 	<div class="content">
 		<Input v-model="fliter.edpattern">
 		<Button slot="append" icon="ios-search" @click="search"></Button>
-		<Button type="success" slot="append" style="width: 80px;margin-left: 10px;background: lightgreen;color: white;" @click="onAdd">添加信息</Button>
-		<Button type="error" slot="append" style="width: 80px;margin-left: 10px;background: lightcoral;color: white;" @click='onDeletes'>删除选中</Button>
+		<Button type="success" slot="append" style="width: 80px;margin-left: 10px;background: lightgreen;color: white;" @click="onAdd">Add information</Button>
+		<Button type="error" slot="append" style="width: 80px;margin-left: 10px;background: lightcoral;color: white;" @click='onDeletes'>Delete the selected</Button>
 		</Input>
 
 		<div class="content-body">
@@ -12,22 +12,22 @@
 		<div class="content-foot">
 			<Page :total="fliter.total" show-elevator @on-change="changePage"></Page>
 		</div>
-		<Modal v-model="modal6" title="留言详情" :loading="loading" @on-ok="asyncOK">
+		<Modal v-model="modal6" title="Personnel training" :loading="loading" @on-ok="asyncOK">
 			<Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
-				<FormItem label="培训方式" prop="edpattern">
+				<FormItem label="Training methods" prop="edpattern">
 					<Input v-model="formValidate.edpattern" placeholder="Enter your title"></Input>
 				</FormItem>
-				<FormItem label="选该方式的理由" prop="edpattern">
+				<FormItem label="The reason for choosing this method." prop="edpattern">
 					<Input v-model="formValidate.edcontent" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter your num"></Input>
 				</FormItem>
-				<FormItem label="培训内容" prop="edpattern">
+				<FormItem label="The training content" prop="edpattern">
 					<Input v-model="formValidate.edreson" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter your education"></Input>
 				</FormItem>
 				<div v-if="!(formValidate.edimgurl&&formValidate.edimgurl1)">
 				<Upload multiple type="drag" name='avatar' :action="imgUrl" :on-success="onSuccess">
 					<div style="padding: 20px 0">
 						<Icon type="ios-cloud-upload" size="52" style="color: #3399ff"></Icon>
-						<p>点击或将文件拖拽到这里上传</p>
+						<p>Click or drag the file here to upload.</p>
 					</div>
 				</Upload>
 				</div>
@@ -45,10 +45,10 @@
 				</FormItem>
 				<FormItem>
 					<div v-if="formValidate.type">
-						<Button type="primary" @click="handleUpdate('formValidate')">修改</Button>
+						<Button type="primary" @click="handleUpdate('formValidate')">Modify</Button>
 					</div>
 					<div v-else>
-						<Button type="primary" @click="handleSubmit('formValidate')">新增</Button>
+						<Button type="primary" @click="handleSubmit('formValidate')">Increased</Button>
 					</div>
 				</FormItem>
 			</Form>
@@ -62,7 +62,7 @@ export default {
   mixins: [Common, Formimg],
   data() {
     return {
-      apimodel: "hr",
+      apimodel: "enhr",
       type: "2",
       cateId: "5a9bf485fce9270fa4c2b6f0",
       columns7: [
@@ -72,15 +72,15 @@ export default {
           align: "center"
         },
         {
-          title: "培训方式",
+          title: "Training methods",
           key: "edpattern"
         },
         {
-          title: "发布时间",
+          title: "Publish",
           key: "date"
         },
         {
-          title: "操作",
+          title: "Operation",
           key: "action",
           width: 150,
           align: "center",
@@ -102,7 +102,7 @@ export default {
                     }
                   }
                 },
-                "查看"
+                "Examine"
               ),
               h(
                 "Button",
@@ -117,7 +117,7 @@ export default {
                     }
                   }
                 },
-                "删除"
+                "Delete"
               )
             ]);
           }
@@ -155,10 +155,10 @@ export default {
     onSuccess(res, file) {
       if (this.formValidate.edimgurl) {
         this.formValidate.edimgurl1 =
-          "http://47.98.51.142:3000/avatar-" + file.name;
+          this.getTest() + "/avatar-" + file.name;
       } else {
         this.formValidate.edimgurl =
-          "http://47.98.51.142:3000/avatar-" + file.name;
+          this.getTest() + "/avatar-" + file.name;
       }
     },
     del1() {

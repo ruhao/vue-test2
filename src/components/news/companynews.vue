@@ -12,7 +12,7 @@
 		<div class="content-foot">
 			<Page :total="fliter.total" show-elevator @on-change="changePage"></Page>
 		</div>
-		<Modal v-model="modal6" title="留言详情" :loading="loading" @on-ok="asyncOK">
+		<Modal v-model="modal6" title="公司新闻" :loading="loading" @on-ok="asyncOK">
 			<Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
 				<FormItem label="标题">
 					<Input v-model="formValidate.title" placeholder="Enter your title"></Input>
@@ -37,6 +37,10 @@
 						<div v-if="formValidate.imgurl" class="madelbox1">
 							<span class="control1" @click="del1">X</span>
 							<img :src="formValidate.imgurl">
+						</div>
+            <div v-if="formValidate.imgurlContent" class="madelbox1">
+							<span class="control1" @click="del1">X</span>
+							<img :src="formValidate.imgurlContent">
 						</div>
 					</div>
 				</FormItem>
@@ -141,7 +145,8 @@ export default {
         year: "",
         imgurl: "",
         day: "",
-        type: ""
+        type: "",
+        imgurlContent: "",
       },
       ids: []
     };
@@ -150,8 +155,9 @@ export default {
     //图片上传成功时粗发事件
     onSuccess(res, file) {
       if (this.formValidate.imgurl) {
+        this.formValidate.imgurlContent = this.getTest() + "/avatar-" + file.name;
       } else {
-        this.formValidate.imgurl = "http://47.98.51.142:3000/avatar-" + file.name;
+        this.formValidate.imgurl = this.getTest() + "/avatar-" + file.name;
       }
     },
     del1() {

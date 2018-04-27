@@ -9,13 +9,14 @@
 		<div class="content-foot">
 			<Page :total="fliter.total" show-elevator @on-change="changePage"></Page>
 		</div>
-		<Modal v-model="modal6" title="留言详情" :loading="loading" @on-ok="asyncOK">
+		<Modal v-model="modal6" title="Leave a message for details" :loading="loading" @on-ok="asyncOK">
 			<div class="message-date">
 
 				<div>{{this.formValidate.title}}</div>
 				<div>{{this.formValidate.content}}</div>
 				<div class="bottom">{{this.formValidate.name}}</div>
 				<div class="bottom">{{this.formValidate.telephone}}</div>
+        <div class="bottom">{{this.formValidate.email}}</div>
 				<div class="bottom">{{this.formValidate.date}}</div>
 
 			</div>
@@ -31,7 +32,7 @@ export default {
       formValidate: [],
       columns7: [
         {
-          title: "姓名",
+          title: "The name",
           key: "name",
           render: (h, params) => {
             return h("div", [
@@ -45,12 +46,16 @@ export default {
           }
         },
         {
-          title: "主题",
+          title: "The theme",
           key: "title"
         },
         {
-          title: "电话",
+          title: "The phone",
           key: "telephone"
+        },
+        {
+          title: "Email",
+          key: "email"
         },
         {
           title: "Action",
@@ -75,7 +80,7 @@ export default {
                     }
                   }
                 },
-                "查看"
+                "Examine"
               )
             ]);
           }
@@ -88,7 +93,7 @@ export default {
         page: 1,
         name: ""
       },
-      apimodel: "message"
+      apimodel: "enmessage"
     };
   },
   methods: {},

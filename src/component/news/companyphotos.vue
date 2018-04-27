@@ -2,8 +2,8 @@
 	<div class="content">
 		<Input v-model="fliter.content">
 		<Button slot="append" icon="ios-search" @click="search"></Button>
-		<Button type="success" slot="append" style="width: 80px;margin-left: 10px;background: lightgreen;color: white;" @click="onAdd">添加信息</Button>
-		<Button type="error" slot="append" style="width: 80px;margin-left: 10px;background: lightcoral;color: white;" @click='onDeletes'>删除选中</Button>
+		<Button type="success" slot="append" style="width: 120px;margin-left: 2px;background: lightgreen;color: white;" @click="onAdd">Add information</Button>
+		<Button type="error" slot="append" style="width: 140px;margin-left: 2px;background: lightcoral;color: white;" @click='onDeletes'>Delete the selected</Button>
 		</Input>
 
 		<div class="content-body">
@@ -12,19 +12,19 @@
 		<div class="content-foot">
 			<Page :total="fliter.total" show-elevator @on-change="changePage"></Page>
 		</div>
-		<Modal v-model="modal6" title="留言详情" :loading="loading" @on-ok="asyncOK">
+		<Modal v-model="modal6" title="The company photos" :loading="loading" @on-ok="asyncOK">
 			<Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
-				<FormItem label="标题">
+				<FormItem label="The title">
 					<Input v-model="formValidate.content" placeholder="Enter your title"></Input>
 				</FormItem>
-				<FormItem label="时间">
+				<FormItem label="Time">
 					<Input v-model="formValidate.detaildate" placeholder="like 17-09"></Input>
 				</FormItem>
 				<div v-if="!(formValidate.zimgurl1&&formValidate.zimgurl2&&formValidate.zimgurl3&&formValidate.zimgurl4&&formValidate.zimgurl5)">
 				<Upload multiple type="drag" name='avatar' :action="imgUrl" :on-success="onSuccess">
 					<div style="padding: 20px 0">
 						<Icon type="ios-cloud-upload" size="52" style="color: #3399ff"></Icon>
-						<p>点击或将文件拖拽到这里上传</p>
+						<p>Click or drag the file here to upload.</p>
 					</div>
 				</Upload>
 				</div>
@@ -54,10 +54,10 @@
 				</FormItem>
 				<FormItem>
 					<div v-if="formValidate.type">
-						<Button type="primary" @click="handleUpdate('formValidate')">修改</Button>
+						<Button type="primary" @click="handleUpdate('formValidate')">Modify</Button>
 					</div>
 					<div v-else>
-						<Button type="primary" @click="handleSubmit('formValidate')">新增</Button>
+						<Button type="primary" @click="handleSubmit('formValidate')">Increased</Button>
 					</div>
 				</FormItem>
 			</Form>
@@ -71,9 +71,9 @@ export default {
   mixins: [Common, Formimg],
   data() {
     return {
-      apimodel: "news",
+      apimodel: "ennews",
       type: "4",
-      cateId: "5a9bf4dbfce9270fa4c2b6f8",
+      cateId: "5aa9e253ce77ad15f0c580ec",
       columns7: [
         {
           //建表格
@@ -82,15 +82,15 @@ export default {
           align: "center"
         },
         {
-          title: "主题",
+          title: "The title",
           key: "content"
         },
         {
-          title: "时间",
+          title: "Years and Month",
           key: "detaildate"
         },
         {
-          title: "操作",
+          title: "Operation",
           key: "action",
           width: 150,
           align: "center",
@@ -112,7 +112,7 @@ export default {
                     }
                   }
                 },
-                "查看"
+                "Examine"
               ),
               h(
                 "Button",
@@ -127,7 +127,7 @@ export default {
                     }
                   }
                 },
-                "删除"
+                "Delete"
               )
             ]);
           }
@@ -160,19 +160,19 @@ export default {
     onSuccess(res, file) {
       if (!this.formValidate.zimgurl1) {
         this.formValidate.zimgurl1 =
-          "http://47.98.51.142:3000/avatar-" + file.name;
+         this.getTest() + "/avatar-" + file.name;
       } else if (!this.formValidate.zimgurl2) {
         this.formValidate.zimgurl2 =
-          "http://47.98.51.142:3000/avatar-" + file.name;
+         this.getTest() + "/avatar-" + file.name;
       } else if (!this.formValidate.zimgurl3) {
         this.formValidate.zimgurl3 =
-          "http://47.98.51.142:3000/avatar-" + file.name;
+         this.getTest() + "/avatar-" + file.name;
       } else if (!this.formValidate.zimgurl4) {
         this.formValidate.zimgurl4 =
-          "http://47.98.51.142:3000/avatar-" + file.name;
+         this.getTest() + "/avatar-" + file.name;
       } else if (!this.formValidate.zimgurl5) {
         this.formValidate.zimgurl5 =
-          "http://47.98.51.142:3000/avatar-" + file.name;
+         this.getTest() + "/avatar-" + file.name;
       }
     },
     del1() {

@@ -167,13 +167,13 @@ export default {
     },
     remove(root, node, data) {
       this.$Modal.confirm({
-        title: "确认删除数据吗",
-        content: "删除后这些数据将无法找回",
+        title: "确定删除这些数据吗",
+        content: "删除后将无法找回",
         loading: true,
         onOk: () => {
           setTimeout(() => {
             this.$http
-              .delete("http://47.98.51.142:3000/kind/data/" + data.id)
+              .delete(this.getTest() + "/kind/data/" + data.id)
               .then(res => {
                 this.getData();
                 this.$Message.info("Clicked ok");
@@ -190,7 +190,7 @@ export default {
     ok() {
       if (this.sure) {
         this.$http
-          .post("http://47.98.51.142:3000/kind/data", this.formItem)
+          .post(this.getTest() + "/kind/data", this.formItem)
           .then(res => {
             this.getData();
             this.$Message.info("Clicked ok");
@@ -199,12 +199,10 @@ export default {
         console.log(this.formItem);
         this.$http
           .put(
-            "http://47.98.51.142:3000/kind/data/" + this.formItem.id,
+            this.getTest() + "/kind/data/" + this.formItem.id,
             this.formItem
           )
           .then(res => {
-            console.log(this.formItem);
-            console.log(2);
             this.getData();
             this.$Message.info("Clicked ok");
           });
@@ -214,7 +212,7 @@ export default {
       this.$Message.info("Clicked cancel");
     },
     getData() {
-      this.$http.get("http://47.98.51.142:3000/kind/data").then(res => {
+      this.$http.get(this.getTest() + "/kind/data").then(res => {
         this.data5[0].children = [];
         this.kinddata = res.data[0];
         this.data5[0].text = this.kinddata.text;

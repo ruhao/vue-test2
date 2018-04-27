@@ -9,8 +9,11 @@ import iView from 'iview';
 import VueAxios from 'vue-axios'
 import {store} from './store.js'//vuex
 import 'iview/dist/styles/iview.css'
+import util from './assets/util'
+import VueJsonp from 'vue-jsonp'
+Vue.use(util)
 Vue.config.productionTip = false
-
+Vue.use(VueJsonp)
 
 
 Vue.use(VueAxios,axios);

@@ -2,8 +2,8 @@
 	<div class="content">
 		<Input v-model="fliter.htitle">
 		<Button slot="append" icon="ios-search" @click="search"></Button>
-		<Button type="success" slot="append" style="width: 80px;margin-left: 10px;background: lightgreen;color: white;" @click="onAdd">添加信息</Button>
-		<Button type="error" slot="append" style="width: 80px;margin-left: 10px;background: lightcoral;color: white;" @click='onDeletes'>删除选中</Button>
+		<Button type="success" slot="append" style="width: 120px;margin-left: 2px;background: lightgreen;color: white;" @click="onAdd">Add information</Button>
+		<Button type="error" slot="append" style="width: 120px;margin-left: 2px;background: lightcoral;color: white;" @click='onDeletes'>Delete the selected</Button>
 		</Input>
 
 		<div class="content-body">
@@ -12,26 +12,26 @@
 		<div class="content-foot">
 			<Page :total="fliter.total" show-elevator @on-change="changePage"></Page>
 		</div>
-		<Modal v-model="modal6" title="留言详情" :loading="loading" @on-ok="asyncOK">
+		<Modal v-model="modal6" title="Industry dynamic" :loading="loading" @on-ok="asyncOK">
 			<Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
-				<FormItem label="标题">
+				<FormItem label="The title">
 					<Input v-model="formValidate.htitle" placeholder="Enter your title"></Input>
 				</FormItem>
-				<FormItem label="年月">
+				<FormItem label="Years and Month">
 					<Input v-model="formValidate.hyear" placeholder="like 17-09"></Input>
 				</FormItem>
-				<FormItem label="具体几号">
+				<FormItem label="Day">
 					<Input v-model="formValidate.hday" placeholder="like 07"></Input>
 				</FormItem>
-				<FormItem label="具体内容">
+				<FormItem label="Content">
 					<Input v-model="formValidate.hcontent" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter your education"></Input>
 				</FormItem>
 				<FormItem>
 					<div v-if="formValidate.type">
-						<Button type="primary" @click="handleUpdate('formValidate')">修改</Button>
+						<Button type="primary" @click="handleUpdate('formValidate')">Modify</Button>
 					</div>
 					<div v-else>
-						<Button type="primary" @click="handleSubmit('formValidate')">新增</Button>
+						<Button type="primary" @click="handleSubmit('formValidate')">Increased</Button>
 					</div>
 				</FormItem>
 			</Form>
@@ -45,9 +45,9 @@ export default {
   mixins: [Common, Formimg],
   data() {
     return {
-      apimodel: "news",
+      apimodel: "ennews",
       type: "2",
-      cateId: "5a9bf4dbfce9270fa4c2b6f7",
+      cateId: "5aa9e263ce77ad15f0c580ed",
       columns7: [
         {
           type: "selection",
@@ -55,19 +55,19 @@ export default {
           align: "center"
         },
         {
-          title: "主题",
+          title: "The title",
           key: "htitle"
         },
         {
-          title: "年月",
+          title: "Years and Month",
           key: "hyear"
         },
         {
-          title: "具体日期",
+          title: "Day",
           key: "hday"
         },
         {
-          title: "操作",
+          title: "Operation",
           key: "action",
           width: 150,
           align: "center",
@@ -89,7 +89,7 @@ export default {
                     }
                   }
                 },
-                "查看"
+                "Examine"
               ),
               h(
                 "Button",
@@ -104,7 +104,7 @@ export default {
                     }
                   }
                 },
-                "删除"
+                "Delete"
               )
             ]);
           }

@@ -10,13 +10,13 @@
 export default {
   data() {
     return {
-      imgUrl: "http://47.98.51.142:3000/upload/upload",
+      imgUrl: this.getTest() + '/upload/upload',
       jsonurl: ''
     };
   },
   methods: {
     onSuccess(res, file) {
-      this.jsonurl = 'http://47.98.51.142:3000/avatar-'+file.name
+      this.jsonurl = this.getTest() + '/avatar-'+file.name
       console.log(file)
       this.$http.get(this.jsonurl).then(res => {
         console.log(res)

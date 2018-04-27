@@ -7,15 +7,14 @@ import Hren from '../component/hr/hr'
 import Strategyen from '../component/hr/strategy'
 import Trainen from '../component/hr/train'
 import Advertisesen from '../component/hr/advertises'
-import InternetSeveren from '../component/internet/internetserver'
 import Messageen from '../component/message/message'
-import Kinden from '../component/kind/kind'
 import Newsen from '../component/news/news'
 import CompanyNewsen from '../component/news/companynews'
 import IndustryDynamicsen from '../component/news/industrydynamics'
 import Marketingen from '../component/news/marketing'
 import CompanyPhotosen from '../component/news/companyphotos'
 import Producten from '../component/product/product'
+import Branden from '../component/product/brand'
 import About from '../components/about/about'
 import AboutHonor from '../components/about/abouthonor'
 import AboutCulture from '../components/about/aboutculture'
@@ -23,7 +22,6 @@ import Hr from '../components/hr/hr'
 import Strategy from '../components/hr/strategy'
 import Train from '../components/hr/train'
 import Advertises from '../components/hr/advertises'
-import InternetSever from '../components/internet/internetserver'
 import Message from '../components/message/message'
 import Kind from '../components/kind/kind'
 import News from '../components/news/news'
@@ -36,6 +34,7 @@ import Brand from '../components/product/brand'
 import Intmarket from '../components/internet/market'
 import Upload from '../components/upload/upload'
 import UploadJson from '../components/upload/uploadJson'
+import Intmarketen from '../component/internet/market'
 
 Vue.use(Router)
 
@@ -107,15 +106,15 @@ export default new Router({
       }
     },
     {
-      path: '/internet',
-      components: {
-        default: InternetSever,
-      }
-    },
-    {
       path: '/intmarket',
       components: {
         default: Intmarket,
+      }
+    },
+    {
+      path: '/enintmarket',
+      components: {
+        default: Intmarketen,
       }
     },
     {
@@ -133,8 +132,18 @@ export default new Router({
         components: {
           default: AboutCulture
         }
-
-      }]
+      },
+        {
+          path: "enabouthonor",
+          components: {
+            default: AboutHonoren
+          },
+        }, {
+          path: "enaboutculture",
+          components: {
+            default: AboutCultureen
+          }
+        }]
     }, {
       path: '/hr',
       components: {
@@ -191,12 +200,7 @@ export default new Router({
         }
       }]
     },
-    {
-      path: '/enkind',
-      components: {
-        default: Kinden,
-      }
-    },
+
     {
       path: '/enmessage',
       components: {
@@ -204,29 +208,12 @@ export default new Router({
       }
     },
     {
-      path: '/eninternet',
+      path: '/enbrand',
       components: {
-        default: InternetSeveren,
+        default: Branden,
       }
     },
     {
-      path: '/enabout',
-      components: {
-        default: Abouten
-      },
-      children: [{
-        path: "enabouthonor",
-        components: {
-          default: AboutHonoren
-        },
-      }, {
-        path: "enaboutculture",
-        components: {
-          default: AboutCultureen
-        }
-
-      }]
-    }, {
       path: '/enhr',
       components: {
         default: Hren

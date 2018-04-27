@@ -17,6 +17,7 @@
 				<div class="bottom">{{this.formValidate.name}}</div>
 				<div class="bottom">{{this.formValidate.telephone}}</div>
 				<div class="bottom">{{this.formValidate.date}}</div>
+        <div class="bottom">{{this.formValidate.email}}</div>
 
 			</div>
 		</Modal>
@@ -51,6 +52,10 @@ export default {
         {
           title: "电话",
           key: "telephone"
+        },
+        {
+          title: "邮箱",
+          key: "email"
         },
         {
           title: "Action",

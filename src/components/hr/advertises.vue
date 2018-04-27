@@ -11,7 +11,7 @@
 		<div class="content-foot">
 			<Page :total="fliter.total" show-elevator @on-change="changePage"></Page>
 		</div>
-		<Modal v-model="modal6" title="留言详情" :loading="loading" @on-ok="asyncOK">
+		<Modal v-model="modal6" title="人力资源" :loading="loading" @on-ok="asyncOK">
 			<Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
 				<FormItem label="人才类型" prop="title">
 					<Input v-model="formValidate.title" placeholder="Enter your title"></Input>
@@ -40,6 +40,13 @@
 				<FormItem label="工作地址" prop="city">
 					<Select v-model="formValidate.site" placeholder="Select your site">
 						<Option value="杭州">杭州</Option>
+            <Option value="北京">北京</Option>
+            <Option value="上海">上海</Option>
+            <Option value="杭州">江苏</Option>
+            <Option value="广东">广东</Option>
+            <Option value="浙江">浙江</Option>
+            <Option value="武汉">武汉</Option>
+            <Option value="杭州">江苏</Option>
 					</Select>
 				</FormItem>
 				<FormItem label="详细要求" prop="detail">
@@ -213,7 +220,7 @@ export default {
       this.formValidate.date = new Date();
       this.$http
         .put(
-          "http://47.98.51.142:3000/hr/data/" + this.formValidate._id,
+          this.getTest() + "/hr/data/" + this.formValidate._id,
           this.formValidate
         )
         .then(res => {
@@ -230,11 +237,10 @@ export default {
       //把cateID,type分类，时间更新等附加上去
       this.$http
         .post(
-          "http://47.98.51.142:3000/hr/data",
+          this.getTest() + "/hr/data",
           this.formValidate
         )
         .then(res => {
-          console.log(res);
           this.getData();
           this.modal6 = false;
           this.formValidate.type = "";

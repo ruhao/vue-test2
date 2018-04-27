@@ -120,7 +120,7 @@
 					content:"",
 					imgurl:"",
 					type:"",
-					bgimg:"http://47.98.51.142:3000/avatar-culture5.jpg",
+					bgimg: this.getTest() + "/avatar-culture5.jpg",
 				},
 				ids: []
 			}
@@ -129,7 +129,7 @@
 			onSuccess(res, file) {
 				if(this.formValidate.imgurl) {
 				} else {
-					this.formValidate.imgurl = "http://47.98.51.142:3000/avatar-" + file.name
+					this.formValidate.imgurl = this.getTest() + "/avatar-" + file.name
 				}
 			},
 			del1() {

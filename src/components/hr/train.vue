@@ -12,7 +12,7 @@
 		<div class="content-foot">
 			<Page :total="fliter.total" show-elevator @on-change="changePage"></Page>
 		</div>
-		<Modal v-model="modal6" title="留言详情" :loading="loading" @on-ok="asyncOK">
+		<Modal v-model="modal6" title="人才培训" :loading="loading" @on-ok="asyncOK">
 			<Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
 				<FormItem label="培训方式" prop="edpattern">
 					<Input v-model="formValidate.edpattern" placeholder="Enter your title"></Input>
@@ -155,10 +155,10 @@ export default {
     onSuccess(res, file) {
       if (this.formValidate.edimgurl) {
         this.formValidate.edimgurl1 =
-          "http://47.98.51.142:3000/avatar-" + file.name;
+          this.getTest() + "/avatar-" + file.name;
       } else {
         this.formValidate.edimgurl =
-          "http://47.98.51.142:3000/avatar-" + file.name;
+          this.getTest() + "/avatar-" + file.name;
       }
     },
     del1() {

@@ -89,8 +89,8 @@
 .allweb {
   height: 100%;
   width: 100%;
-	background: url('http://47.98.51.142:3000/avatar-bici.png') center -250px no-repeat;
-	background-color:black;  
+  background: url("http://47.98.51.142:80/avatar-bici.png") center -250px no-repeat;
+  background-color: black;
 }
 
 .allbody {
@@ -122,23 +122,55 @@
 									<Icon type="android-people"></Icon>
 									<router-link to='/about/aboutculture' tag='span'>企业文化</router-link>
 									</MenuItem>
+									<MenuItem name="9-3">
+									<Icon type="android-people"></Icon>
+									<router-link to='/about/enaboutculture' tag='span'>Culture</router-link>
+									</MenuItem>
 									<MenuItem name="9-2">
 									<Icon type="android-people"></Icon>
 									<router-link to='/about/abouthonor' tag='span'>企业荣誉</router-link>
 									</MenuItem>
+									<MenuItem name="9-4">
+									<Icon type="android-people"></Icon>
+									<router-link to='/about/enabouthonor' tag='span'>Honor</router-link>
+									</MenuItem>
 								</Submenu>
-								<Menu-item name="2">
+								<Submenu name="2">
+									<template slot="title">
+										<Icon type="lock-combination"></Icon>
+									   	产品业务
+									  </template>
+								<Menu-item name="2-1">
 									<Icon type="ios-navigate"></Icon>
 									<router-link to='/product' tag='span'>产品模块</router-link>
 								</Menu-item>
-								<Menu-item name="9">
+								<Menu-item name="2-2">
+									<Icon type="ios-navigate"></Icon>
+									<router-link to='/enproduct' tag='span'>Product</router-link>
+								</Menu-item>
+								<Menu-item name="2-3">
 									<Icon type="lock-combination"></Icon>
 									<router-link to='/brand' tag='span'>合作品牌</router-link>
 								</Menu-item>
-								<Menu-item name="10">
+								<Menu-item name="2-4">
 									<Icon type="lock-combination"></Icon>
+									<router-link to='/enbrand' tag='span'>Brand</router-link>
+								</Menu-item>
+								</Submenu>
+								<Submenu name="10">
+									<template slot="title">
+										<Icon type="ios-world-outline"></Icon>
+									   	营销网络
+									  </template>
+								<Menu-item name="10-1">
+									<Icon type="ios-world-outline"></Icon>
 									<router-link to='/intmarket' tag='span'>营销网络</router-link>
 								</Menu-item>
+								<Menu-item name="10-2">
+									<Icon type="ios-world-outline"></Icon>
+									<router-link to='/enintmarket' tag='span'>Marketing network</router-link>
+								</Menu-item>
+								</Submenu>
 								<Submenu name="3">
 									<template slot="title">
 										<Icon type="ios-reverse-camera"></Icon>
@@ -148,17 +180,33 @@
 									<Icon type="ios-copy-outline"></Icon>
 									<router-link to='/news/companynews' tag='span'>公司新闻</router-link>
 									</MenuItem>
+									<MenuItem name="3-5">
+									<Icon type="ios-copy-outline"></Icon>
+									<router-link to='/ennews/encompanynews' tag='span'>Company news</router-link>
+									</MenuItem>
 									<MenuItem name="3-2">
 									<Icon type="videocamera"></Icon>
 									<router-link to='/news/industrydynamics' tag='span'>行业动态</router-link>
+									</MenuItem>
+									<MenuItem name="3-6">
+									<Icon type="videocamera"></Icon>
+									<router-link to='/ennews/enindustrydynamics' tag='span'>Industry dynamic</router-link>
 									</MenuItem>
 									<MenuItem name="3-3">
 									<Icon type="images"></Icon>
 									<router-link to='/news/companyphotos' tag='span'>公司照片</router-link>
 									</MenuItem>
+									<MenuItem name="3-7">
+									<Icon type="images"></Icon>
+									<router-link to='/ennews/encompanyphotos' tag='span'>The company photos</router-link>
+									</MenuItem>
 									<MenuItem name="3-4">
 									<Icon type="ios-color-wand"></Icon>
 									<router-link to='/news/marketing' tag='span'>营销活动</router-link>
+									</MenuItem>
+									<MenuItem name="3-8">
+									<Icon type="ios-color-wand"></Icon>
+									<router-link to='/ennews/enmarketing' tag='span'>Marketing activities</router-link>
 									</MenuItem>
 								</Submenu>
 									<Submenu name="4">
@@ -172,16 +220,16 @@
 									</Menu-item>
 									<Menu-item name="4-2">
 									<Icon type="edit"></Icon>
-									<router-link to='/jsonupload' tag='span'>上传Json</router-link>
+									<router-link to='/jsonupload' tag='span'>上传物流</router-link>
+									</Menu-item>
+									<Menu-item name="4-3">
+									<Icon type="edit"></Icon>
+									<router-link to='/jsonupload' tag='span'>上传仓储</router-link>
 									</Menu-item>
 								</Submenu>
 								<Menu-item name="5">
 									<Icon type="ios-copy-outline"></Icon>
 									<router-link to='/kind' tag='span'>分类模块</router-link>
-								</Menu-item>
-								<Menu-item name="6">
-									<Icon type="ios-world-outline"></Icon>
-									<router-link to='/internet' tag='span'>网络营销</router-link>
 								</Menu-item>
 								<Submenu name="7">
 									<template slot="title">
@@ -193,21 +241,43 @@
 									<Icon type="android-people"></Icon>
 									<router-link to='/hr/strategy' tag='span'>人才战略</router-link>
 									</MenuItem>
-									<MenuItem name="7-2">
+									<MenuItem name="7-4">
+									<Icon type="android-people"></Icon>
+									<router-link to='/enhr/enstrategy' tag='span'>Talent strategy</router-link>
+									</MenuItem>
+									<MenuItem name="7-5">
 									<Icon type="android-people"></Icon>
 									<router-link to='/hr/train' tag='span'>人才培训</router-link>
 									</MenuItem>
-									<MenuItem name="7-3">
+									<MenuItem name="7-2">
+									<Icon type="android-people"></Icon>
+									<router-link to='/enhr/entrain' tag='span'>Personnel training</router-link>
+									</MenuItem>
+									<MenuItem name="7-7">
 									<Icon type="android-people"></Icon>
 									<router-link to='/hr/advertises' tag='span'>人才招聘</router-link>
 									</MenuItem>
+									<MenuItem name="7-3">
+									<Icon type="android-people"></Icon>
+									<router-link to='/enhr/enadvertises' tag='span'>Recruitment</router-link>
+									</MenuItem>
 								</Submenu>
-								<Menu-item name="8">
+								<Submenu name="8">
+									<template slot="title">
+										<Icon type="ios-email-outline"></Icon>
+										在线留言
+									</template>
+								<Menu-item name="8-1">
 									<Icon type="ios-email-outline"></Icon>
 									<router-link to='/message' tag='span'>留言模块</router-link>
 								</Menu-item>
+								<Menu-item name="8-2">
+									<Icon type="ios-email-outline"></Icon>
+									<router-link to='/enmessage' tag='span'>Message</router-link>
+								</Menu-item>
+								</Submenu>
 							</div>
-							<div v-if="login=='news'">
+							<!-- <div v-if="login=='news'">
 								<Submenu name="3">
 									<template slot="title">
 										<Icon type="ios-reverse-camera"></Icon>
@@ -269,7 +339,7 @@
 									<Icon type="edit"></Icon>
 									<router-link to='/upload' tag='span'>上传模块</router-link>
 								</Menu-item>
-							</div>
+							</div> -->
 						</Menu>
 					</i-col>
 					<i-col :span="spanRight">
@@ -330,6 +400,15 @@ export default {
         user: "",
         password: ""
       },
+      testData: [],
+      testLength: "",
+      testSta: 0,
+      fliter: {
+        data6: [],
+        total: 0,
+        limit: 300,
+        page: 1,
+      },
       ruleInline: {
         user: [
           {
@@ -374,14 +453,14 @@ export default {
     handleSubmit(name) {
       this.$refs[name].validate(valid => {
         if (valid) {
-          this.$http.get("http://47.98.51.142:3000/admin/data").then(res => {
-            let ii = res.data.length;
+          this.$http.post(this.getTest() + "/admin/list").then(res => {
+            let ii = res.data.rows.length;
             for (let i = 0; i < ii; i++) {
               if (
-                this.formInline.user == res.data[i].reg &&
-                this.formInline.password == res.data[i].password
+                this.formInline.user == res.data.rows[i].reg &&
+                this.formInline.password == res.data.rows[i].password
               ) {
-                this.checkLogin(res.data[i].workarea);
+                this.checkLogin(res.data.rows[i].workarea);
                 this.$Message.success("Success!");
                 if (this.login == "news") {
                   this.$router.push({
@@ -403,7 +482,7 @@ export default {
                     path: "/"
                   });
                 }
-								if (this.login == "product") {
+                if (this.login == "product") {
                   this.$router.push({
                     path: "/product"
                   });
@@ -415,8 +494,34 @@ export default {
           this.$Message.error("Fail!");
         }
       });
-    }
-  },
-  created() {}
+    },
+  //   Changeurl(index) {
+  //     if (index < this.testLength) {
+  //       let obj = {
+  //         bgimg: this.testData[index].bgimg
+  //           .replace(/http:/, "https:")
+  //           .replace(/47.98.51.142:80/, "www.laowaicang.com"),
+  //       };
+  //       console.log(obj);
+  //       this.$http
+  //         .put(this.getTest() + "/about/data/" + this.testData[index]._id, obj)
+  //         .then(res => {
+	// 					this.$http.post(this.getTest() + "/about/list").then(data => {
+	// 						console.log(data)
+	// 					})
+	// 				});
+  //       this.testSta = this.testSta + 1;
+  //       this.Changeurl(this.testSta);
+  //     }
+  //   }
+  // },
+  // created() {
+  //   this.Changeurl();
+  //   this.$http.post(this.getTest() + "/about/list", this.fliter).then(res => {
+  //     this.testData = res.data.rows;
+  //     this.testLength = res.data.rows.length;
+  //     this.Changeurl(this.testSta);
+  //   });
+   }
 };
 </script>

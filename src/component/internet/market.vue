@@ -1,10 +1,16 @@
 <template>
 	<div class="product">
 		<div class="product-left">
-        <p class="pp" @click="GETONE('1')">华东</p>
+        <p class="pp"  @click="GETONE('1')">华东</p>
         <br/>
         <br/>
         <p class="pp"  @click="GETONE('2')">华南</p>
+        <br/>
+        <br/>
+        <p class="pp"  @click="GETONE('3')">华西</p>
+        <br/>
+        <br/>
+        <p class="pp"  @click="GETONE('4')">华北</p>
         <br/>
         <br/>
 		</div>
@@ -69,7 +75,7 @@ export default {
     return {
       cateId: '5a9bf30cfce9270fa4c2b6e6',
       type: "",
-      apimodel: "intmartket",
+      apimodel: "intmarket",
       columns7: [
         {
           type: "selection",
@@ -82,7 +88,7 @@ export default {
           key: "name"
         },
         {
-          title: "品牌名",
+          title: "所属区域",
           align: "center",
           key: "workarea"
         },
@@ -153,7 +159,7 @@ export default {
     onSuccess(res, file) {
       if (this.formValidate.imgurl) {
       } else {
-        this.formValidate.imgurl = "http://47.98.51.142:3000/avatar-" + file.name;
+        this.formValidate.imgurl = this.getTest() + "/avatar-" + file.name;
       }
     },
     del1() {
@@ -178,12 +184,11 @@ export default {
             this.formValidate.cateId = this.cateId
             this.formValidate.date = new Date()
             //把cateID,type分类，时间更新等附加上去
-            console.log(this.formValidate.type)
-            // this.$http.post(`http://47.98.51.142:3000/brand/data`, this.formValidate).then(res => {
-            //     this.getData()
-            //     this.modal6 = false;
-            //     this.formValidate.type = "";
-            // })
+            this.$http.post(this.getTest() + "/intmarket/data", this.formValidate).then(res => {
+                this.getData()
+                this.modal6 = false;
+                this.formValidate.type = "";
+            })
     }
   },
   created() {

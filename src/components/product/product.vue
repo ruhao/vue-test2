@@ -16,7 +16,7 @@
 			<div class="content-foot">
 				<Page :total="fliter.total" show-elevator @on-change="changePage"></Page>
 			</div>
-			<Modal v-model="modal6" title="留言详情" :loading="loading" @on-ok="asyncOK">
+			<Modal v-model="modal6" title="产品业务" :loading="loading" @on-ok="asyncOK">
 				<Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
 					<FormItem label="产品名称">
 						<Input v-model="formValidate.name" placeholder="Enter your name"></Input>
@@ -68,6 +68,9 @@
 					</FormItem>
           <FormItem label="食用方法">
 						<Input v-model="formValidate.use" placeholder="Enter your use"></Input>
+					</FormItem>
+          <FormItem label="使用方法">
+						<Input v-model="formValidate.MethodOfUse" placeholder="Enter your use"></Input>
 					</FormItem>
 					<FormItem label="储存环境">
 						<Input v-model="formValidate.storaged" placeholder="Enter your storaged"></Input>
@@ -280,7 +283,8 @@ export default {
         smell: "",
         taste: "",
         haveparameter: '',
-        fittemperature: ''
+        fittemperature: '',
+        MethodOfUse:''
       }
     };
   },
@@ -289,7 +293,7 @@ export default {
       if (this.formValidate.imgurl) {
       } else {
         this.formValidate.imgurl =
-          "http://47.98.51.142:3000/avatar-" + file.name;
+          this.getTest() + "/avatar-" + file.name;
       }
     },
     del1() {
@@ -319,7 +323,8 @@ export default {
       }
     },
     getData1() {
-      this.$http.get("http://47.98.51.142:3000/kind/data").then(res => {
+      this.$http.get(this.getTest() + "/kind/data").then(res => {
+        res.data[0] = res.data[0].children[0]
         this.data1[0].children = [];
         this.data1[0].title = res.data[0].children[5].text;
         this.data1[0].id = res.data[0].children[5]._id;

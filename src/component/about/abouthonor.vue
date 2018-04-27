@@ -2,8 +2,8 @@
 	<div class="content">
 		<Input v-model="fliter.title">
 		<Button slot="append" icon="ios-search" @click="search"></Button>
-		<Button type="success" slot="append" style="width: 80px;margin-left: 10px;background: lightgreen;color: white;" @click="onAdd">添加信息</Button>
-		<Button type="error" slot="append" style="width: 80px;margin-left: 10px;background: lightcoral;color: white;" @click='onDeletes'>删除选中</Button>
+		<Button type="success" slot="append" style="width: 80px;margin-left: 10px;background: lightgreen;color: white;" @click="onAdd">Add information</Button>
+		<Button type="error" slot="append" style="width: 80px;margin-left: 10px;background: lightcoral;color: white;" @click='onDeletes'>Delete the selected</Button>
 		</Input>
 
 		<div class="content-body">
@@ -23,7 +23,7 @@
 				<Upload multiple type="drag" name='avatar' :action="imgUrl" :on-success="onSuccess">
 					<div style="padding: 20px 0">
 						<Icon type="ios-cloud-upload" size="52" style="color: #3399ff"></Icon>
-						<p>点击或将文件拖拽到这里上传</p>
+						<p>Click or drag the file here to upload.</p>
 					</div>
 				</Upload>
 				<FormItem>
@@ -36,10 +36,10 @@
 				</FormItem>
 				<FormItem>
 					<div v-if="formValidate.type">
-						<Button type="primary" @click="handleUpdate('formValidate')">修改</Button>
+						<Button type="primary" @click="handleUpdate('formValidate')">Modify</Button>
 					</div>
 					<div v-else>
-						<Button type="primary" @click="handleSubmit('formValidate')">新增</Button>
+						<Button type="primary" @click="handleSubmit('formValidate')">Increased</Button>
 					</div>
 				</FormItem>
 			</Form>
@@ -54,22 +54,22 @@
 		data() {
 			return {
 				type: "1",
-				apimodel: 'about',//resful api 接口路径不同处
-				cateId: "5a9bf50dfce9270fa4c2b6fb",
+				apimodel: 'enabout',//resful api 接口路径不同处
+				cateId: "5aa88fa986b9ad13bcd34a0a",
 				columns7: [{
 						type: 'selection',
 						width: 60,
 						align: 'center'
 					}, {
-						title: '主题',
+						title: 'Title',
 						key: 'title'
 					},
 					{
-						title: '发布时间',
+						title: 'Publish',
 						key: 'date'
 					},
 					{
-						title: '操作',
+						title: 'Operation',
 						key: 'action',
 						width: 150,
 						align: 'center',
@@ -88,7 +88,7 @@
 											this.show(params.index)
 										}
 									}
-								}, '查看'),
+								}, 'Examine'),
 								h('Button', {
 									props: {
 										type: 'error',
@@ -99,7 +99,7 @@
 											this.remove(params.index)
 										}
 									}
-								}, '删除')
+								}, 'Delete')
 							]);
 						}
 					}
@@ -120,7 +120,7 @@
 					content:"",
 					imgurl:"",
 					type:"",
-					bgimg:"http://47.98.51.142:3000/avatar-culture5.jpg",
+					bgimg:this.getTest() + "/avatar-culture5.jpg",
 				},
 				ids: []
 			}
@@ -129,7 +129,7 @@
 			onSuccess(res, file) {
 				if(this.formValidate.imgurl) {
 				} else {
-					this.formValidate.imgurl = "http://47.98.51.142:3000/avatar-" + file.name
+					this.formValidate.imgurl = this.getTest() + "/avatar-" + file.name
 				}
 			},
 			del1() {

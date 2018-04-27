@@ -1,13 +1,13 @@
 export default {
     data() {
         return {
-            imgUrl: 'http://47.98.51.142:3000/upload/upload',//上传模块的地址
+            imgUrl: 'https://www.laowaicang.com/upload/upload',//上传模块的地址
         }
     },
     methods: {
         handleUpdate() {//修改操作
             this.formValidate.date = new Date()//更新时  吧时间也顺带更新了
-            this.$http.put(`http://47.98.51.142:3000/${this.apimodel}/data/` + this.formValidate._id, this.formValidate).then(res => {
+            this.$http.put(`https://www.laowaicang.com/${this.apimodel}/data/` + this.formValidate._id, this.formValidate).then(res => {
                 this.getData()
                 this.modal6 = false;
             })
@@ -26,7 +26,7 @@ export default {
                 content: "<p>确定删除吗</p>",
                 onOk: () => {
                     this.$http
-                        .post(`http://47.98.51.142:3000/${this.apimodel}/deletes`, {
+                        .post(`https://www.laowaicang.com/${this.apimodel}/deletes`, {
                             ids: this.ids.toString()
                         })
                         .then(res => {

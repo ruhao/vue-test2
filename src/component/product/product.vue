@@ -6,8 +6,8 @@
 		<div class="product-right">
 			<Input v-model="fliter.name">
 			<Button slot="append" icon="ios-search" @click="search"></Button>
-			<Button type="success" slot="append" style="width: 80px;margin-left: 10px;background: lightgreen;color: white;" @click="onAdd1">添加信息</Button>
-			<Button type="error" slot="append" style="width: 80px;margin-left: 10px;background: lightcoral;color: white;" @click='onDeletes'>删除选中</Button>
+			<Button type="success" slot="append" style="width: 120px;margin-left: 2px;background: lightgreen;color: white;" @click="onAdd1">Add information</Button>
+			<Button type="error" slot="append" style="width: 140px;margin-left: 2px;background: lightcoral;color: white;" @click='onDeletes'>Delete the selected</Button>
 			</Input>
 
 			<div class="content-body">
@@ -16,10 +16,13 @@
 			<div class="content-foot">
 				<Page :total="fliter.total" show-elevator @on-change="changePage"></Page>
 			</div>
-			<Modal v-model="modal6" title="留言详情" :loading="loading" @on-ok="asyncOK">
+			<Modal v-model="modal6" title="Products" :loading="loading" @on-ok="asyncOK">
 				<Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
 					<FormItem label="产品名称">
 						<Input v-model="formValidate.name" placeholder="Enter your name"></Input>
+					</FormItem>
+          <FormItem label="无产品参数">
+						<Input v-model="formValidate.haveparameter" placeholder="Enter your haveparameter"></Input>
 					</FormItem>
 					<FormItem label="产品产地">
 						<Input v-model="formValidate.origin" placeholder="Enter your origin"></Input>
@@ -60,7 +63,10 @@
           <FormItem label="适用人群">
 						<Input v-model="formValidate.isfit" placeholder="Enter your isfit"></Input>
 					</FormItem>
-          <FormItem label="食用用方法">
+          <FormItem label="适用温度">
+						<Input v-model="formValidate.fittemperature" placeholder="Enter your fittemperature"></Input>
+					</FormItem>
+          <FormItem label="食用方法">
 						<Input v-model="formValidate.use" placeholder="Enter your use"></Input>
 					</FormItem>
 					<FormItem label="储存环境">
@@ -96,10 +102,25 @@
             <br/>
 						<Input v-model="formValidate.content2" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter your content2"></Input>
 					</FormItem>
+          <FormItem label="特点四">
+						<Input v-model="formValidate.title3" placeholder="Enter your title3"></Input>
+            <br/>
+						<Input v-model="formValidate.content3" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter your content3"></Input>
+					</FormItem>
+          <FormItem label="特点五">
+						<Input v-model="formValidate.title4" placeholder="Enter your title4"></Input>
+            <br/>
+						<Input v-model="formValidate.content4" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter your content4"></Input>
+					</FormItem>
+          <FormItem label="特点六">
+						<Input v-model="formValidate.title5" placeholder="Enter your title5"></Input>
+            <br/>
+						<Input v-model="formValidate.content5" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter your content5"></Input>
+					</FormItem>
 					<Upload multiple type="drag" name='avatar' :action="imgUrl" :on-success="onSuccess">
 						<div style="padding: 20px 0">
 							<Icon type="ios-cloud-upload" size="52" style="color: #3399ff"></Icon>
-							<p>点击或将文件拖拽到这里上传</p>
+							<p>Click or drag the file here to upload.</p>
 						</div>
 					</Upload>
 					<FormItem>
@@ -112,10 +133,10 @@
 					</FormItem>
 					<FormItem>
 						<div v-if="formValidate.name">
-							<Button type="primary" @click="handleUpdate('formValidate')">修改</Button>
+							<Button type="primary" @click="handleUpdate('formValidate')">Modify</Button>
 						</div>
 						<div v-else>
-							<Button type="primary" @click="handleSubmit('formValidate')">新增</Button>
+							<Button type="primary" @click="handleSubmit('formValidate')">Increased</Button>
 						</div>
 					</FormItem>
 				</Form>
@@ -131,7 +152,7 @@ export default {
   mixins: [Common, Formimg],
   data() {
     return {
-      cateId: '',
+      cateId: "",
       type: "",
       data1: [
         {
@@ -142,7 +163,7 @@ export default {
           children: []
         }
       ],
-      apimodel: "products",
+      apimodel: 'enproducts',
       columns7: [
         {
           type: "selection",
@@ -150,27 +171,27 @@ export default {
           align: "center"
         },
         {
-          title: "产品名字",
+          title: "The product name",
           key: "name"
         },
         {
-          title: "产品产地",
+          title: "Product origin",
           key: "origin"
         },
         {
-          title: "产品质量",
+          title: "The weight of the product",
           key: "weight"
         },
         {
-          title: "保质期",
+          title: "Shelf life",
           key: "expiration"
         },
         {
-          title: "储存环境",
+          title: "Storage environment",
           key: "storaged"
         },
         {
-          title: "操作",
+          title: "Operation",
           key: "action",
           width: 150,
           align: "center",
@@ -192,7 +213,7 @@ export default {
                     }
                   }
                 },
-                "查看"
+                "Examine"
               ),
               h(
                 "Button",
@@ -207,7 +228,7 @@ export default {
                     }
                   }
                 },
-                "删除"
+                "Delete"
               )
             ]);
           }
@@ -237,21 +258,29 @@ export default {
         content1: "",
         title2: "",
         content2: "",
+        title3: "",
+        content3: "",
+        title4: "",
+        content4: "",
+        title5: "",
+        content5: "",
         imgurl: "",
         barcode: "",
         type: "",
         cateId: "",
-        belong:"",
-        Qcontent:"",
+        belong: "",
+        Qcontent: "",
         use: "",
         isfit: "",
         companyintroduction: "",
-    Tcontent:"",
-    Kcontent:"",
-		Scontent:"",
-		color:"",
-		smell:"",
-		taste:"",
+        Tcontent: "",
+        Kcontent: "",
+        Scontent: "",
+        color: "",
+        smell: "",
+        taste: "",
+        haveparameter: '',
+        fittemperature: ''
       }
     };
   },
@@ -259,7 +288,8 @@ export default {
     onSuccess(res, file) {
       if (this.formValidate.imgurl) {
       } else {
-        this.formValidate.imgurl = "http://47.98.51.142:3000/avatar-" + file.name;
+        this.formValidate.imgurl =
+          this.getTest() + "/avatar-" + file.name;
       }
     },
     del1() {
@@ -268,12 +298,12 @@ export default {
     cidchance(rows) {
       this.fliter.cateId = [];
       if (rows[0].children.length > 0) {
-        this.cateId = '';
+        this.cateId = "";
         this.getcateid(rows[0].children);
       } else {
         this.fliter.cateId.push(rows[0].id);
         this.cateId = rows[0].id;
-        this.type=rows[0].type
+        this.type = rows[0].type;
       }
       this.fliter.type = rows[0].type;
       this.getData();
@@ -289,7 +319,8 @@ export default {
       }
     },
     getData1() {
-      this.$http.get("http://47.98.51.142:3000/kind/data").then(res => {
+      this.$http.get(this.getTest() + "/kind/data").then(res => {
+        res.data[0] = res.data[0].children[1]
         this.data1[0].children = [];
         this.data1[0].title = res.data[0].children[5].text;
         this.data1[0].id = res.data[0].children[5]._id;
@@ -311,7 +342,7 @@ export default {
           expand: true,
           id: data[i]._id,
           cateId: data[i].parentId,
-          type:data[i].type,
+          type: data[i].type,
           children: []
         };
         Node.push(obj);
@@ -327,7 +358,7 @@ export default {
             this.$data.formValidate,
             this.$options.data().formValidate
           ); //进行数据新的结合，吧原来的空数据赋值到当前表格
-           this.formValidate.type=this.type
+        this.formValidate.type = this.type;
       } else {
         this.$Message.info("请先选择分类");
       }

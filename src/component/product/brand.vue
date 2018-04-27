@@ -13,13 +13,13 @@
         <p class="pp"  @click="GETONE('4')">U~Z</p>
         <br/>
         <br/>
-        <p class="pp"  @click="GETONE('5')">其他</p>
+        <p class="pp"  @click="GETONE('5')">other</p>
 		</div>
 		<div class="product-right">
 			<Input v-model="fliter.name">
 			<Button slot="append" icon="ios-search" @click="search"></Button>
-			<Button type="success" slot="append" style="width: 80px;margin-left: 10px;background: lightgreen;color: white;" @click="onAdd">添加信息</Button>
-			<Button type="error" slot="append" style="width: 80px;margin-left: 10px;background: lightcoral;color: white;" @click='onDeletes'>删除选中</Button>
+			<Button type="success" slot="append" style="width: 120px;margin-left: 2px;background: lightgreen;color: white;" @click="onAdd">Add information</Button>
+			<Button type="error" slot="append" style="width: 140px;margin-left: 2px;background: lightcoral;color: white;" @click='onDeletes'>Delete the selected</Button>
 			</Input>
 
 			<div class="content-body">
@@ -28,18 +28,21 @@
 			<div class="content-foot">
 				<Page :total="fliter.total" show-elevator @on-change="changePage"></Page>
 			</div>
-			<Modal v-model="modal6" title="留言详情" :loading="loading" @on-ok="asyncOK">
+			<Modal v-model="modal6" title="Cooperation brand" :loading="loading" @on-ok="asyncOK">
 				<Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
-					<FormItem label="品牌名">
+					<FormItem label="Brand name">
 						<Input v-model="formValidate.name" placeholder="Enter your name"></Input>
 					</FormItem>
-          <FormItem label="详情">
-						<Input v-model="formValidate.detail" placeholder="Enter your name"></Input>
+          <FormItem label="details">
+						<Input v-model="formValidate.detail" placeholder="Enter your detail"></Input>
+					</FormItem>
+          <FormItem label="prioritize">
+						<Input v-model="formValidate.isfisrt" placeholder="Enter your isfisrt"></Input>
 					</FormItem>
 					<Upload multiple type="drag" name='avatar' :action="imgUrl" :on-success="onSuccess">
 						<div style="padding: 20px 0">
 							<Icon type="ios-cloud-upload" size="52" style="color: #3399ff"></Icon>
-							<p>点击或将文件拖拽到这里上传</p>
+							<p>Click or drag the file here to upload.</p>
 						</div>
 					</Upload>
 					<FormItem>
@@ -52,10 +55,10 @@
 					</FormItem>
 					<FormItem>
 						<div v-if="formValidate.type">
-							<Button type="primary" @click="handleUpdate('formValidate')">修改</Button>
+							<Button type="primary" @click="handleUpdate('formValidate')">Modify</Button>
 						</div>
 						<div v-else>
-							<Button type="primary" @click="handleSubmit1('formValidate')">新增</Button>
+							<Button type="primary" @click="handleSubmit1('formValidate')">Increased</Button>
 						</div>
 					</FormItem>
 				</Form>
@@ -71,9 +74,9 @@ export default {
   mixins: [Common, Formimg],
   data() {
     return {
-      cateId: '5a794d58d1352a01acf1b836',
+      cateId: '5aa88ff986b9ad13bcd34a0d',
       type: "",
-      apimodel: "brand",
+      apimodel: "enbrand",
       columns7: [
         {
           type: "selection",
@@ -81,12 +84,12 @@ export default {
           align: "center"
         },
         {
-          title: "品牌名",
+          title: "Brand name",
           align: "center",
           key: "name"
         },
         {
-          title: "操作",
+          title: "Operation",
           key: "action",
           width: 150,
           align: "center",
@@ -108,7 +111,7 @@ export default {
                     }
                   }
                 },
-                "查看"
+                "Examine"
               ),
               h(
                 "Button",
@@ -123,7 +126,7 @@ export default {
                     }
                   }
                 },
-                "删除"
+                "Delete"
               )
             ]);
           }
@@ -132,7 +135,7 @@ export default {
       fliter: {
         data6: [],
         total: 0,
-        limit: 8,
+        limit: 12,
         page: 1,
         name: "",
         type: "",
@@ -143,7 +146,8 @@ export default {
         name: "",
         type:"",
         imgurl:"",
-        detail:""
+        detail:"",
+        isfisrt:""
       }
     };
   },
@@ -151,7 +155,7 @@ export default {
     onSuccess(res, file) {
       if (this.formValidate.imgurl) {
       } else {
-        this.formValidate.imgurl = "http://47.98.51.142:3000/avatar-" + file.name;
+        this.formValidate.imgurl = this.getTest() + "/avatar-" + file.name;
       }
     },
     del1() {
@@ -189,7 +193,7 @@ export default {
             this.formValidate.cateId = this.cateId
             this.formValidate.date = new Date()
             //把cateID,type分类，时间更新等附加上去
-            this.$http.post(`http://47.98.51.142:3000/brand/data`, this.formValidate).then(res => {
+            this.$http.post( this.getTest() + "/brand/data", this.formValidate).then(res => {
                 this.getData()
                 this.modal6 = false;
                 this.formValidate.type = "";

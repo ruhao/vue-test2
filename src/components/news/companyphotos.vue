@@ -12,7 +12,7 @@
 		<div class="content-foot">
 			<Page :total="fliter.total" show-elevator @on-change="changePage"></Page>
 		</div>
-		<Modal v-model="modal6" title="留言详情" :loading="loading" @on-ok="asyncOK">
+		<Modal v-model="modal6" title="公司照片" :loading="loading" @on-ok="asyncOK">
 			<Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
 				<FormItem label="标题">
 					<Input v-model="formValidate.content" placeholder="Enter your title"></Input>
@@ -160,19 +160,19 @@ export default {
     onSuccess(res, file) {
       if (!this.formValidate.zimgurl1) {
         this.formValidate.zimgurl1 =
-          "http://47.98.51.142:3000/avatar-" + file.name;
+          this.getTest() + "/avatar-" + file.name;
       } else if (!this.formValidate.zimgurl2) {
         this.formValidate.zimgurl2 =
-          "http://47.98.51.142:3000/avatar-" + file.name;
+          this.getTest() + "/avatar-" + file.name;
       } else if (!this.formValidate.zimgurl3) {
         this.formValidate.zimgurl3 =
-          "http://47.98.51.142:3000/avatar-" + file.name;
+          this.getTest() + "/avatar-" + file.name;
       } else if (!this.formValidate.zimgurl4) {
         this.formValidate.zimgurl4 =
-          "http://47.98.51.142:3000/avatar-" + file.name;
+          this.getTest() + "/avatar-" + file.name;
       } else if (!this.formValidate.zimgurl5) {
         this.formValidate.zimgurl5 =
-          "http://47.98.51.142:3000/avatar-" + file.name;
+          this.getTest() + "/avatar-" + file.name;
       }
     },
     del1() {

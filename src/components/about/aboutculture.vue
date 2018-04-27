@@ -12,7 +12,7 @@
 		<div class="content-foot">
 			<Page :total="fliter.total" show-elevator @on-change="changePage"></Page>
 		</div>
-		<Modal v-model="modal6" title="留言详情" :loading="loading" @on-ok="asyncOK">
+		<Modal v-model="modal6" title="企业文化" :loading="loading" @on-ok="asyncOK">
 			<Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
 				<FormItem label="主题">
 					<Input v-model="formValidate.title" placeholder="Enter your title"></Input>
@@ -129,7 +129,7 @@ export default {
         content: "",
         imgurl: "",
         type: "",
-        bgimg: "http://47.98.51.142:3000/avatar-culture5.jpg"
+        bgimg:this.getTest() + "/avatar-culture5.jpg"
       },
       ids: []
     };
@@ -138,7 +138,7 @@ export default {
     onSuccess(res, file) {
       if (this.formValidate.imgurl) {
       } else {
-        this.formValidate.imgurl = "http://47.98.51.142:3000/avatar-" + file.name;
+        this.formValidate.imgurl =this.getTest() + "/avatar-" + file.name;
       }
     },
     del1() {

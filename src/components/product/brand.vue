@@ -28,7 +28,7 @@
 			<div class="content-foot">
 				<Page :total="fliter.total" show-elevator @on-change="changePage"></Page>
 			</div>
-			<Modal v-model="modal6" title="留言详情" :loading="loading" @on-ok="asyncOK">
+			<Modal v-model="modal6" title="合作品牌" :loading="loading" @on-ok="asyncOK">
 				<Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
 					<FormItem label="品牌名">
 						<Input v-model="formValidate.name" placeholder="Enter your name"></Input>
@@ -135,7 +135,7 @@ export default {
       fliter: {
         data6: [],
         total: 0,
-        limit: 8,
+        limit: 12,
         page: 1,
         name: "",
         type: "",
@@ -155,7 +155,7 @@ export default {
     onSuccess(res, file) {
       if (this.formValidate.imgurl) {
       } else {
-        this.formValidate.imgurl = "http://47.98.51.142:3000/avatar-" + file.name;
+        this.formValidate.imgurl = this.getTest() + "/avatar-" + file.name;
       }
     },
     del1() {
@@ -193,7 +193,7 @@ export default {
             this.formValidate.cateId = this.cateId
             this.formValidate.date = new Date()
             //把cateID,type分类，时间更新等附加上去
-            this.$http.post(`http://47.98.51.142:3000/brand/data`, this.formValidate).then(res => {
+            this.$http.post(this.getTest() + `/brand/data`, this.formValidate).then(res => {
                 this.getData()
                 this.modal6 = false;
                 this.formValidate.type = "";
